@@ -1,0 +1,6 @@
+{
+  "projects": {
+    "default": "betchicagodev",
+    "production": "bet-chicago"
+  }
+}

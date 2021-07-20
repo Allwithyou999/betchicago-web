@@ -1,0 +1,1261 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
+    <!--
+      Notice the use of %PUBLIC_URL% in the tag above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <title>React App</title>
+  </head>
+  <body>
+    <script>
+      if (!window.initApp) {
+        console.log('initialized...');
+        window.initApp = function() {};
+      }
+
+      if(!window.cApplicationLocal) {
+        window.cApplicationLocal =
+        {
+          "pageType": "home",
+          "pageSection": null,
+          "sectionColor": "#EC5800",
+          "pageLeague": "home",
+          "staticContentPath": "/",
+          "staticContentLocalPath": "/",
+          "contentPathPrefix": "/",
+          "dbURL": "https://bet-chicago.firebaseio.com",
+          "headlinesList": [
+            {
+              "headline": "Welcome to BetChicago!",
+              "id": "5dcvoPSpGEK0oGqaGQoCcw",
+              "url": "welcome-to-betchicago",
+              "imageAlt": "BetChicago promises to keep you entertained and informed about all things Chicago sports, betting and fantasy.",
+              "authors": [
+                {
+                  "id": "7cA7r5V6qQ8okcImsMGkkK",
+                  "title": "Managing Editor",
+                  "fullname": "Marcus DiNitto",
+                  "company": "BetChicago",
+                  "twitter": "@MarcusDiNitto"
+                }
+              ],
+              "image": "//images.ctfassets.net/p0ykbbcw3bn6/1iVZ7WCYKqWAE2CIgAeSOU/7c825ab970199a4d92731835d635649f/AP_16280432894482.jpg",
+              "imageLink": "//images.ctfassets.net/p0ykbbcw3bn6/1iVZ7WCYKqWAE2CIgAeSOU/7c825ab970199a4d92731835d635649f/AP_16280432894482.jpg",
+              "summary": "Whether you’re a casual fan who has never placed a bet on a game, or you’ve been betting on sports for years, we'll deliver news and analysis to keep you educated, informed and entertained.",
+              "updated": "2018-06-14T15:04-04:00",
+              "created": "2018-06-05T19:18:48.906Z",
+              "sectionName": "ODDS",
+              "sectionColor": "",
+              "sectionSlug": "betting-odds",
+              "href": "welcome-to-betchicago",
+              "title": "Welcome to BetChicago!"
+            },
+            {
+              "headline": "World Cup Day 7 betting preview: High-scoring matches likely on Wednesday ",
+              "id": "6qaHAOu3ZuQOu6qkiQYy4m",
+              "url": "world-cup-betting-wednesday-spain-portugal",
+              "imageAlt": "Spain players should see plenty of scoring opportunities Wednesday",
+              "authors": [
+                {
+                  "id": "3V5R3sbt5KUyq2yW0MqWKa",
+                  "title": "Senior Staff Writer",
+                  "fullname": "Joe Rodgers",
+                  "company": "BetChicago",
+                  "twitter": "@RodgersBC"
+                }
+              ],
+              "image": "//images.ctfassets.net/p0ykbbcw3bn6/6WavU5H9wQIUMakCuGuOwO/cb014cf62c5a8926853d84816fa55e77/AP_18166697049853.jpg",
+              "imageLink": "//images.ctfassets.net/p0ykbbcw3bn6/6WavU5H9wQIUMakCuGuOwO/cb014cf62c5a8926853d84816fa55e77/AP_18166697049853.jpg",
+              "summary": "Powerful attacking teams Spain and Portugal face weak defenses, while Group A favorite Uruguay takes on Saudi Arabia, who allowed five goals to host Russia to begin the tournament. ",
+              "updated": "2018-06-19T13:50-04:00",
+              "created": "2018-06-19T17:46:17.429Z",
+              "sectionName": "SOCCER",
+              "sectionColor": "",
+              "sectionSlug": "soccer-betting",
+              "href": "world-cup-betting-wednesday-spain-portugal",
+              "title": "World Cup Day 7 betting preview: High-scoring matches likely on Wednesday "
+            },
+            {
+              "headline": "Vegas oddsmaker: 'Pieces in place for Bears to have big improvement year'",
+              "id": "4R6hMCo3LaQw8CSoUikA8s",
+              "url": "vegas-oddsmaker-bears-improvement",
+              "imageAlt": "New coach Matt Nagy and the Bears are drawing comparisons to last year's Rams team.",
+              "authors": [
+                {
+                  "id": "2dwagaejryiIAkOIiuq4y2",
+                  "title": "Night Editor",
+                  "fullname": "Thomas Casale",
+                  "company": "BetChicago",
+                  "twitter": "@ThePigskinGuy"
+                }
+              ],
+              "image": "//images.ctfassets.net/p0ykbbcw3bn6/1vkeOBvw40w2EKCmaACUu4/e9166f2205d1db2c6c2a4fb7851c98a6/Nagy.jpg",
+              "imageLink": "//images.ctfassets.net/p0ykbbcw3bn6/1vkeOBvw40w2EKCmaACUu4/e9166f2205d1db2c6c2a4fb7851c98a6/Nagy.jpg",
+              "summary": "Can the Bears be this season's version of last year's Rams? One oddsmaker in Las Vegas sees a lot of similarities between the teams. ",
+              "updated": "2018-06-19T20:30-04:00",
+              "created": "2018-06-20T00:34:50.657Z",
+              "sectionName": "NFL",
+              "sectionColor": "",
+              "sectionSlug": "nfl-betting",
+              "href": "vegas-oddsmaker-bears-improvement",
+              "title": "Vegas oddsmaker: 'Pieces in place for Bears to have big improvement year'"
+            },
+            {
+              "headline": " Mike Montgomery’s success necessitates unconventional approach for Cubs rotation ",
+              "id": "5bhMzm1RKEEG0QygoCSiIs",
+              "url": "mike-montgomery-cubs-rotation",
+              "imageAlt": "Mike Montgomery is proving he deserves a spot in the Cubs rotation.",
+              "authors": [
+                {
+                  "id": "4MIwZ4jJCg04c664y4QWuY",
+                  "title": "contributing writer",
+                  "fullname": "Ryan Davis",
+                  "company": null,
+                  "twitter": "@RyanQDavis"
+                }
+              ],
+              "image": "//images.ctfassets.net/p0ykbbcw3bn6/24xZQ5bdsg4seumcC2cIOc/f080e6602753ee6c26224d167a3b3356/AP_18153852240604.jpg",
+              "imageLink": "//images.ctfassets.net/p0ykbbcw3bn6/24xZQ5bdsg4seumcC2cIOc/f080e6602753ee6c26224d167a3b3356/AP_18153852240604.jpg",
+              "summary": "Mike Montgomery has created a good problem for the Cubs to have: What to do once Yu Darvish returns and the pitching staff is healthy?",
+              "updated": "2018-06-18T20:15-04:00",
+              "created": "2018-06-18T23:31:04.457Z",
+              "sectionName": "MLB",
+              "sectionColor": "",
+              "sectionSlug": "mlb-betting",
+              "href": "mike-montgomery-cubs-rotation",
+              "title": " Mike Montgomery’s success necessitates unconventional approach for Cubs rotation "
+            }
+          ],
+          "apImages": [],
+          "mainArticle": {
+            "id": "1EuItJZUaAOEiwyqs4qGgc",
+            "title": "2018 NBA Draft: Odds, projected top picks, order, time and channel",
+            "imageLink": "//images.ctfassets.net/p0ykbbcw3bn6/4CYu8eXCMgsIWE040GUikG/f14640281039f1bf5a50bb253804576a/AP_18136049733882.jpg",
+            "pageUrl": "/2018-nba-draft-odds-projected-top-picks-order-time-tv",
+            "tags": "",
+            "content": null,
+            "href": "/2018-nba-draft-odds-projected-top-picks-order-time-tv",
+            "image": "//images.ctfassets.net/p0ykbbcw3bn6/4CYu8eXCMgsIWE040GUikG/f14640281039f1bf5a50bb253804576a/AP_18136049733882.jpg",
+            "imageAlt": "The Bulls hold the No. 7 and No. 22 pick in the 2018 NBA Draft.",
+            "imageCaption": " (AP Photo/Charles Rex Arbogast)",
+            "author": "",
+            "authorTitle": "",
+            "authorBio": "",
+            "authorWebsite": "",
+            "authorPosition": "",
+            "sectionName": null,
+            "sectionColor": null,
+            "sectionSlug": null,
+            "authorImage": "",
+            "authorId": "",
+            "headline": "2018 NBA Draft: Odds, projected top picks, order, time and channel",
+            "authors": [],
+            "articleSummary": "",
+            "articleContent": null,
+            "createdAt": "",
+            "updatedAt": ""
+          },
+          "articleList": [
+            {
+              "headline": "2018 NBA Draft: Odds, projected top picks, order, time and channel",
+              "id": "1EuItJZUaAOEiwyqs4qGgc",
+              "url": "2018-nba-draft-odds-projected-top-picks-order-time-tv",
+              "imageAlt": "The Bulls hold the No. 7 and No. 22 pick in the 2018 NBA Draft.",
+              "authors": [
+                {
+                  "id": "2n8j0hohRiWScKCqCoksUO",
+                  "title": "intern",
+                  "fullname": "Trevor Colgan",
+                  "company": null,
+                  "twitter": "@trevor_colgan "
+                }
+              ],
+              "image": "//images.ctfassets.net/p0ykbbcw3bn6/4CYu8eXCMgsIWE040GUikG/f14640281039f1bf5a50bb253804576a/AP_18136049733882.jpg",
+              "imageLink": "//images.ctfassets.net/p0ykbbcw3bn6/4CYu8eXCMgsIWE040GUikG/f14640281039f1bf5a50bb253804576a/AP_18136049733882.jpg",
+              "summary": "The 2018 NBA Draft is Thursday. What's the order? What are the odds? Who are the top prospects?  Who will the Bulls select? Here's what you need to know.",
+              "updated": "2018-06-19T21:06-04:00",
+              "created": "2018-06-20T01:05:48.049Z",
+              "sectionName": "NBA",
+              "sectionColor": "",
+              "sectionSlug": "nba-betting",
+              "href": "2018-nba-draft-odds-projected-top-picks-order-time-tv",
+              "title": "2018 NBA Draft: Odds, projected top picks, order, time and channel"
+            },
+            {
+              "headline": "Hue Jackson has best odds to be first NFL coach fired this season",
+              "id": "12KSrrcoXimaKuQyq0QAUk",
+              "url": "hue-jackson-best-odds-first-nfl-coach-fired",
+              "imageAlt": "Hue Jackson is the NFL coach most likely to be fired this year, oddsmakers say. ",
+              "authors": [
+                {
+                  "id": "xPd2bNx504qowgUG0IIie",
+                  "title": "Staff Writer",
+                  "fullname": "Andrew Albert",
+                  "company": "BetChicago",
+                  "twitter": "@AndrewJAlbert01"
+                }
+              ],
+              "image": "//images.ctfassets.net/p0ykbbcw3bn6/1QhmLCdsviUEgKmKucmqOQ/76acb22ae250155f229bc1554189c10c/AP_18164706760145.jpg",
+              "imageLink": "//images.ctfassets.net/p0ykbbcw3bn6/1QhmLCdsviUEgKmKucmqOQ/76acb22ae250155f229bc1554189c10c/AP_18164706760145.jpg",
+              "summary": "Hue Jackson, who has won just one game over the past two years, is the odds on favorite to be the first NFL coach fired this season. ",
+              "updated": "2018-06-19T20:00-04:00",
+              "created": "2018-06-20T00:57:40.825Z",
+              "sectionName": "NFL",
+              "sectionColor": "",
+              "sectionSlug": "nfl-betting",
+              "href": "hue-jackson-best-odds-first-nfl-coach-fired",
+              "title": "Hue Jackson has best odds to be first NFL coach fired this season"
+            },
+            {
+              "headline": "Cubs betting preview: Montgomery looks to continue success in Game 2 of doubleheader",
+              "id": "38GNGznXUc02Ou2ISA2OOc",
+              "url": "cubs-betting-dodgers-doubleheader-tuesday",
+              "imageAlt": "Mike Montgomery has given up just three runs in 23 2/3 innings while starting in place of Yu Darvish. ",
+              "authors": [
+                {
+                  "id": "xPd2bNx504qowgUG0IIie",
+                  "title": "Staff Writer",
+                  "fullname": "Andrew Albert",
+                  "company": "BetChicago",
+                  "twitter": "@AndrewJAlbert01"
+                }
+              ],
+              "image": "//images.ctfassets.net/p0ykbbcw3bn6/343WJaN1KEcyAq40A2oEgk/3fd11acc6855eb89971d9f58ab8d44a1/AP_18116086690962.jpg",
+              "imageLink": "//images.ctfassets.net/p0ykbbcw3bn6/343WJaN1KEcyAq40A2oEgk/3fd11acc6855eb89971d9f58ab8d44a1/AP_18116086690962.jpg",
+              "summary": "Rich Hill (1-3, 6.20 ERA) and Mike Montgomery (2-2, 3.31 ERA) will do battle in a matchup that neither probably expected to be in.",
+              "updated": "2018-06-19T17:05-04:00",
+              "created": "2018-06-19T15:20:43.730Z",
+              "sectionName": "MLB",
+              "sectionColor": "",
+              "sectionSlug": "mlb-betting",
+              "href": "cubs-betting-dodgers-doubleheader-tuesday",
+              "title": "Cubs betting preview: Montgomery looks to continue success in Game 2 of doubleheader"
+            },
+            {
+              "headline": "Updated World Cup odds: Brazil, Spain lead pack despite early draws",
+              "id": "56hBWtBvIISeuGImSAgwYA",
+              "url": "updated-world-cup-odds-brazil-spain",
+              "imageAlt": "Brazil remains the favorite to win the World Cup",
+              "authors": [
+                {
+                  "id": "3V5R3sbt5KUyq2yW0MqWKa",
+                  "title": "Senior Staff Writer",
+                  "fullname": "Joe Rodgers",
+                  "company": "BetChicago",
+                  "twitter": "@RodgersBC"
+                }
+              ],
+              "image": "//images.ctfassets.net/p0ykbbcw3bn6/d1egePVWTYImG44mWqWIC/7e658c04d600814301bbc73e3f7a58df/AP_18168662363512.jpg",
+              "imageLink": "//images.ctfassets.net/p0ykbbcw3bn6/d1egePVWTYImG44mWqWIC/7e658c04d600814301bbc73e3f7a58df/AP_18168662363512.jpg",
+              "summary": "Despite a pair of disappointing draws in their first matches, Brazil and Spain remain favorites to win the World Cup. ",
+              "updated": "2018-06-19T17:00-04:00",
+              "created": "2018-06-19T21:19:23.462Z",
+              "sectionName": "SOCCER",
+              "sectionColor": "",
+              "sectionSlug": "soccer-betting",
+              "href": "updated-world-cup-odds-brazil-spain",
+              "title": "Updated World Cup odds: Brazil, Spain lead pack despite early draws"
+            },
+            {
+              "headline": "NBA Draft may shake out in multitude of ways for Bulls",
+              "id": "3JsVRfWte8UiCaUSmgcmsc",
+              "url": "nba-draft-2018-bulls",
+              "imageAlt": "Could Michael Porter Jr. fall to Bulls at No. 7 in 2018 NBA Draft?",
+              "authors": [
+                {
+                  "id": "3Mv9hoTmvu6Ce28qso0qoq",
+                  "title": "Contributor ",
+                  "fullname": "Jason Patt ",
+                  "company": "BetChicago ",
+                  "twitter": "@Bulls_Jay "
+                }
+              ],
+              "image": "//images.ctfassets.net/p0ykbbcw3bn6/13ZTP7ehpyEAGm6a6OWa0q/03bf55c189316ee9e415424d195c88e7/AP_18074490043880.jpg",
+              "imageLink": "//images.ctfassets.net/p0ykbbcw3bn6/13ZTP7ehpyEAGm6a6OWa0q/03bf55c189316ee9e415424d195c88e7/AP_18074490043880.jpg",
+              "summary": "The Chicago Bulls enter an important 2018 NBA Draft with plenty of possibilities as they try to take a step forward with their rebuild. ",
+              "updated": "2018-06-19T16:46-04:00",
+              "created": "2018-06-19T20:38:33.737Z",
+              "sectionName": "NBA",
+              "sectionColor": "",
+              "sectionSlug": "nba-betting",
+              "href": "nba-draft-2018-bulls",
+              "title": "NBA Draft may shake out in multitude of ways for Bulls"
+            },
+            {
+              "headline": "College Football Playoff odds: Alabama bettors asked to lay heavy price for Tide to reach final four",
+              "id": "5S9Fqp1GRaEWy4kew488uO",
+              "url": "college-football-playoff-odds-alabama-favorites",
+              "imageAlt": "Nick Saban's team is once again a heavy favorite to make it back to the College Football Playoff",
+              "authors": [
+                {
+                  "id": "xPd2bNx504qowgUG0IIie",
+                  "title": "Staff Writer",
+                  "fullname": "Andrew Albert",
+                  "company": "BetChicago",
+                  "twitter": "@AndrewJAlbert01"
+                }
+              ],
+              "image": "//images.ctfassets.net/p0ykbbcw3bn6/cZ0UTWE1IO26iqWwMgm88/4f7f8d5a689487ca7d9c3f75e61b1217/AP_18020782162082.jpg",
+              "imageLink": "//images.ctfassets.net/p0ykbbcw3bn6/cZ0UTWE1IO26iqWwMgm88/4f7f8d5a689487ca7d9c3f75e61b1217/AP_18020782162082.jpg",
+              "summary": "Alabama is the betting favorite to play their way into the College Football Playoff, as they have for each of the last four years.",
+              "updated": "2018-06-19T16:01-04:00",
+              "created": "2018-06-19T19:58:36.041Z",
+              "sectionName": "NCAA FB",
+              "sectionColor": "",
+              "sectionSlug": "college-football-betting",
+              "href": "college-football-playoff-odds-alabama-favorites",
+              "title": "College Football Playoff odds: Alabama bettors asked to lay heavy price for Tide to reach final four"
+            },
+            {
+              "headline": "Chris Paul reportedly thinks LeBron James will end up with Lakers, betting market agrees",
+              "id": "ief7ZsojXGmU8ko864sOe",
+              "url": "chris-paul-lebron-james-lakers-odds",
+              "imageAlt": "Chris Paul believes LeBron will end up in LA, but that won't stop him from recruiting. ",
+              "authors": [
+                {
+                  "id": "xPd2bNx504qowgUG0IIie",
+                  "title": "Staff Writer",
+                  "fullname": "Andrew Albert",
+                  "company": "BetChicago",
+                  "twitter": "@AndrewJAlbert01"
+                }
+              ],
+              "image": "//images.ctfassets.net/p0ykbbcw3bn6/ajla8f40piKuWmSUekOoS/41038ee0f8824ff848f3c0680d295525/AP_27369510396.jpg",
+              "imageLink": "//images.ctfassets.net/p0ykbbcw3bn6/ajla8f40piKuWmSUekOoS/41038ee0f8824ff848f3c0680d295525/AP_27369510396.jpg",
+              "summary": "Yesterday, ESPN’s Steven A. Smith said on his podcast that Chris Paul believes LeBron will end up in Los Angeles with the Lakers. ",
+              "updated": "2018-06-19T14:22-04:00",
+              "created": "2018-06-19T18:21:15.720Z",
+              "sectionName": "NBA",
+              "sectionColor": "",
+              "sectionSlug": "nba-betting",
+              "href": "chris-paul-lebron-james-lakers-odds",
+              "title": "Chris Paul reportedly thinks LeBron James will end up with Lakers, betting market agrees"
+            },
+            {
+              "headline": "World Cup betting wrap, Day 6: OVERs and own goals the story early on",
+              "id": "205071Wluc8Ag2EcgC8Wmg",
+              "url": "world-cup-betting-japan-colombia-poland-senegal",
+              "imageAlt": "Senegal's M'Baye Niang celebrates his goal during his country's 2-1 win over Poland Tuesday.",
+              "authors": [
+                {
+                  "id": "2n8j0hohRiWScKCqCoksUO",
+                  "title": "intern",
+                  "fullname": "Trevor Colgan",
+                  "company": null,
+                  "twitter": "@trevor_colgan "
+                }
+              ],
+              "image": "//images.ctfassets.net/p0ykbbcw3bn6/29gUPm3d9mYG6EOSECOkYa/a5783597c042950eda39dbbe914681ce/AP_18170591300368.jpg",
+              "imageLink": "//images.ctfassets.net/p0ykbbcw3bn6/29gUPm3d9mYG6EOSECOkYa/a5783597c042950eda39dbbe914681ce/AP_18170591300368.jpg",
+              "summary": "Two underdogs pulled off the upset early Tuesday, with both Japan and Senegal winning. Mohammed Salah returned for Egypt, but it wasn't enough.",
+              "updated": "2018-06-19T14:03-04:00",
+              "created": "2018-06-19T17:59:35.852Z",
+              "sectionName": "SOCCER",
+              "sectionColor": "",
+              "sectionSlug": "soccer-betting",
+              "href": "world-cup-betting-japan-colombia-poland-senegal",
+              "title": "World Cup betting wrap, Day 6: OVERs and own goals the story early on"
+            },
+            {
+              "headline": "Marvin Bagley a 'near lock' to go No. 2 to the Kings",
+              "id": "4Wz35dnHgs6w408c0yu4Ok",
+              "url": "marvin-bagley-near-lock-kings",
+              "imageAlt": "Marvin Bagley III is a \"near lock\" to be drafted second overall by the Kings.",
+              "authors": [
+                {
+                  "id": "2n8j0hohRiWScKCqCoksUO",
+                  "title": "intern",
+                  "fullname": "Trevor Colgan",
+                  "company": null,
+                  "twitter": "@trevor_colgan "
+                }
+              ],
+              "image": "//images.ctfassets.net/p0ykbbcw3bn6/crCjbeS6WIeyG2GgIyKOm/e38146546a4e8bcd05108c12fbd54ea4/AP_18163018032587.jpg",
+              "imageLink": "//images.ctfassets.net/p0ykbbcw3bn6/crCjbeS6WIeyG2GgIyKOm/e38146546a4e8bcd05108c12fbd54ea4/AP_18163018032587.jpg",
+              "summary": "Reports have Marvin Bagley III going to the Kings. Is it good odds to bet on this?",
+              "updated": "2018-06-19T14:00-04:00",
+              "created": "2018-06-19T16:45:47.806Z",
+              "sectionName": "NBA",
+              "sectionColor": "",
+              "sectionSlug": "nba-betting",
+              "href": "marvin-bagley-near-lock-kings",
+              "title": "Marvin Bagley a 'near lock' to go No. 2 to the Kings"
+            },
+            {
+              "headline": "Mike Hoffman traded twice in midst of investigation into fiance's cyberbullying",
+              "id": "4vZP9XIoq42Kk0CqY8m6uA",
+              "url": "mike-hoffman-traded-fiance-cyberbullying",
+              "imageAlt": "Mike Hoffman has been traded twice in the last day. ",
+              "authors": [
+                {
+                  "id": "xPd2bNx504qowgUG0IIie",
+                  "title": "Staff Writer",
+                  "fullname": "Andrew Albert",
+                  "company": "BetChicago",
+                  "twitter": "@AndrewJAlbert01"
+                }
+              ],
+              "image": "//images.ctfassets.net/p0ykbbcw3bn6/7HWnHRohhuCWC8imme8CUy/17c8b701a4d76a43ae695aa856586777/AP_18170455399204.jpg",
+              "imageLink": "//images.ctfassets.net/p0ykbbcw3bn6/7HWnHRohhuCWC8imme8CUy/17c8b701a4d76a43ae695aa856586777/AP_18170455399204.jpg",
+              "summary": "Hoffman was been traded to the San Jose Sharks, who then turned around and traded him to the Florida Panthers amid a cyberbullying investigation involving his fiancee. ",
+              "updated": "2018-06-19T13:18-04:00",
+              "created": "2018-06-19T17:21:41.050Z",
+              "sectionName": "NHL",
+              "sectionColor": "",
+              "sectionSlug": "nhl-betting",
+              "href": "mike-hoffman-traded-fiance-cyberbullying",
+              "title": "Mike Hoffman traded twice in midst of investigation into fiance's cyberbullying"
+            },
+            {
+              "headline": "Brazil's odds vs. Costa Rica adjusted after Neymar limps out of training with ankle injury",
+              "id": "39qq9CEvM4UYwqU6Q6ScsY",
+              "url": "brazil-costa-rica-odds-neymar-injury-ankle",
+              "imageAlt": "Brazil star Neymar limped out of training on Tuesday amid injury concerns ",
+              "authors": [
+                {
+                  "id": "3V5R3sbt5KUyq2yW0MqWKa",
+                  "title": "Senior Staff Writer",
+                  "fullname": "Joe Rodgers",
+                  "company": "BetChicago",
+                  "twitter": "@RodgersBC"
+                }
+              ],
+              "image": "//images.ctfassets.net/p0ykbbcw3bn6/4TDwfbnmAMIsAMoAAeM0me/8841b735250b881a2eb772b53c5f298d/AP_18168732050521__1_.jpg",
+              "imageLink": "//images.ctfassets.net/p0ykbbcw3bn6/4TDwfbnmAMIsAMoAAeM0me/8841b735250b881a2eb772b53c5f298d/AP_18168732050521__1_.jpg",
+              "summary": "Neymar left Brazil's training on Tuesday with an apparent right ankle injury, and oddsmakers in Las Vegas were quick to adjust the betting lines ahead of Friday's match vs. Costa Rica.",
+              "updated": "2018-06-19T12:38-04:00",
+              "created": "2018-06-19T16:36:13.767Z",
+              "sectionName": "SOCCER",
+              "sectionColor": "",
+              "sectionSlug": "soccer-betting",
+              "href": "brazil-costa-rica-odds-neymar-injury-ankle",
+              "title": "Brazil's odds vs. Costa Rica adjusted after Neymar limps out of training with ankle injury"
+            },
+            {
+              "headline": "Fantasy Football: Updated QB rankings",
+              "id": "2U2xzcmV5YgyseGoyIAe02",
+              "url": "fantasy-football-updated-qb-rankings",
+              "imageAlt": "Russell Wilson was fantasy football's top scoring QB in 2017. ",
+              "authors": [
+                {
+                  "id": "2dwagaejryiIAkOIiuq4y2",
+                  "title": "Night Editor",
+                  "fullname": "Thomas Casale",
+                  "company": "BetChicago",
+                  "twitter": "@ThePigskinGuy"
+                }
+              ],
+              "image": "//images.ctfassets.net/p0ykbbcw3bn6/4NE4LRI2pq4agYCusIEMs0/a122a09db62abf24ece2110fef9dafa8/Wilson.jpg",
+              "imageLink": "//images.ctfassets.net/p0ykbbcw3bn6/4NE4LRI2pq4agYCusIEMs0/a122a09db62abf24ece2110fef9dafa8/Wilson.jpg",
+              "summary": "The quarterback position is loaded for fantasy football owners. It’s a good year to wait until later in drafts to select a QB, but if you decide to grab one of the studs, here’s how we rank the Top 10. ",
+              "updated": "2018-06-19T10:53-04:00",
+              "created": "2018-06-19T14:52:54.781Z",
+              "sectionName": "FANTASY FOOTBALL",
+              "sectionColor": "",
+              "sectionSlug": "fantasy-football",
+              "href": "fantasy-football-updated-qb-rankings",
+              "title": "Fantasy Football: Updated QB rankings"
+            },
+            {
+              "headline": "College football 2018 season win totals: Shopping around for the best numbers",
+              "id": "5B91ogenviOCs6ECa6WGmC",
+              "url": "college-football-2018-season-win-totals-betonline",
+              "imageAlt": "Las Vegas values Notre Dame more than offshore oddsmakers. ",
+              "authors": [
+                {
+                  "id": "2dwagaejryiIAkOIiuq4y2",
+                  "title": "Night Editor",
+                  "fullname": "Thomas Casale",
+                  "company": "BetChicago",
+                  "twitter": "@ThePigskinGuy"
+                }
+              ],
+              "image": "//images.ctfassets.net/p0ykbbcw3bn6/3S7F9pD7ZYIcWImgA0QAUY/f092701edd23b1d5366d7436e2def40a/Winbush.jpg",
+              "imageLink": "//images.ctfassets.net/p0ykbbcw3bn6/3S7F9pD7ZYIcWImgA0QAUY/f092701edd23b1d5366d7436e2def40a/Winbush.jpg",
+              "summary": "BetOnline updated its college football win totals about month after the South Point in Las Vegas released its numbers. While most of the numbers are close, there are discrepancies with a few big-name teams that will catch the eye of bettors.",
+              "updated": "2018-06-19T09:30-04:00",
+              "created": "2018-06-19T13:29:52.754Z",
+              "sectionName": "NCAA FB",
+              "sectionColor": "",
+              "sectionSlug": "college-football-betting",
+              "href": "college-football-2018-season-win-totals-betonline",
+              "title": "College football 2018 season win totals: Shopping around for the best numbers"
+            },
+            {
+              "headline": "White Sox betting preview: Carlos Rodon eyes first win vs. Indians on Tuesday",
+              "id": "1J8mrwHl5qmUkQkIGCAEQQ",
+              "url": "white-sox-betting-chicago-indians-tuesday",
+              "imageAlt": "Carlos Rodon looks for his first win of the 2018 season Tuesday against the Indians. ",
+              "authors": [
+                {
+                  "id": "xPd2bNx504qowgUG0IIie",
+                  "title": "Staff Writer",
+                  "fullname": "Andrew Albert",
+                  "company": "BetChicago",
+                  "twitter": "@AndrewJAlbert01"
+                }
+              ],
+              "image": "//images.ctfassets.net/p0ykbbcw3bn6/4GlSDcAvuMqkMsiyMsumIO/896faf9e25d24030e47db6faaaffc539/AP_18160855122156.jpg",
+              "imageLink": "//images.ctfassets.net/p0ykbbcw3bn6/4GlSDcAvuMqkMsiyMsumIO/896faf9e25d24030e47db6faaaffc539/AP_18160855122156.jpg",
+              "summary": "The White Sox are big underdogs in Cleveland Tuesday. Carlos Rodon will make his third start of the year and is still looking for his first win. ",
+              "updated": "2018-06-19T08:50-04:00",
+              "created": "2018-06-19T12:45:57.265Z",
+              "sectionName": "MLB",
+              "sectionColor": "",
+              "sectionSlug": "mlb-betting",
+              "href": "white-sox-betting-chicago-indians-tuesday",
+              "title": "White Sox betting preview: Carlos Rodon eyes first win vs. Indians on Tuesday"
+            },
+            {
+              "headline": "Tuesday MLB betting preview: Mariners have pitching edge as dogs in the Bronx",
+              "id": "5vboHBsCPuayWeI2UU4gMM",
+              "url": "tuesday-mlb-betting-preview-mariners-yankees",
+              "imageAlt": "The Yankees are favorites Tuesday despite Domingo German going 1-3 in his last 5 starts.",
+              "authors": [
+                {
+                  "id": "2dwagaejryiIAkOIiuq4y2",
+                  "title": "Night Editor",
+                  "fullname": "Thomas Casale",
+                  "company": "BetChicago",
+                  "twitter": "@ThePigskinGuy"
+                }
+              ],
+              "image": "//images.ctfassets.net/p0ykbbcw3bn6/14b9NbTLKwMI2iKgWEuwEo/9774f52f4197d6a84523cb768d22bfca/German.jpg",
+              "imageLink": "//images.ctfassets.net/p0ykbbcw3bn6/14b9NbTLKwMI2iKgWEuwEo/9774f52f4197d6a84523cb768d22bfca/German.jpg",
+              "summary": "Two of the American League's top teams meet Tuesday when the Mariners travel to the Bronx to take on the Yankees. The Yankees are favored, but Seattle brings the more in-form pitcher. ",
+              "updated": "2018-06-19T08:35-04:00",
+              "created": "2018-06-19T12:34:11.908Z",
+              "sectionName": "MLB",
+              "sectionColor": "",
+              "sectionSlug": "mlb-betting",
+              "href": "tuesday-mlb-betting-preview-mariners-yankees",
+              "title": "Tuesday MLB betting preview: Mariners have pitching edge as dogs in the Bronx"
+            },
+            {
+              "headline": "Cubs betting preview: Tyler Chatwood looks to get back on track in rain-delayed start vs. Dodgers",
+              "id": "5yyIHg7x3aG8AGAUiQuU4k",
+              "url": "cubs-betting-preview-tyler-chatwood-looks-to-get-back-on-track-with-the",
+              "imageAlt": "Tyler Chatwood and the Cubs look to get back on track when the Los Angeles Dodgers visit for a three-game series. ",
+              "authors": [
+                {
+                  "id": "xPd2bNx504qowgUG0IIie",
+                  "title": "Staff Writer",
+                  "fullname": "Andrew Albert",
+                  "company": "BetChicago",
+                  "twitter": "@AndrewJAlbert01"
+                }
+              ],
+              "image": "//images.ctfassets.net/p0ykbbcw3bn6/12rwVm23wuQScOCUyW0uYa/0a2eaa9a4486d88bbc832ef134d3202a/Chatwood.jpg",
+              "imageLink": "//images.ctfassets.net/p0ykbbcw3bn6/12rwVm23wuQScOCUyW0uYa/0a2eaa9a4486d88bbc832ef134d3202a/Chatwood.jpg",
+              "summary": "Tyler Chatwood and the Cubs look to get back on track when the Los Angeles Dodgers visit for a three-game series that starts Tuesday after Monday's postponement.",
+              "updated": "2018-06-19T08:08-04:00",
+              "created": "2018-06-18T03:24:38.738Z",
+              "sectionName": "MLB",
+              "sectionColor": "",
+              "sectionSlug": "mlb-betting",
+              "href": "cubs-betting-preview-tyler-chatwood-looks-to-get-back-on-track-with-the",
+              "title": "Cubs betting preview: Tyler Chatwood looks to get back on track in rain-delayed start vs. Dodgers"
+            },
+            {
+              "headline": "Travelers Championship Odds: Dustin Johnson slight favorite over Brooks Koepka",
+              "id": "30R041gzSg4CEKK6woo4s8",
+              "url": "travelers-championship-odds",
+              "imageAlt": "U.S. Open champion Brooks Koepka is the second betting favorite at the Travelers Championship.",
+              "authors": [
+                {
+                  "id": "2dwagaejryiIAkOIiuq4y2",
+                  "title": "Night Editor",
+                  "fullname": "Thomas Casale",
+                  "company": "BetChicago",
+                  "twitter": "@ThePigskinGuy"
+                }
+              ],
+              "image": "//images.ctfassets.net/p0ykbbcw3bn6/10NsXKcNwycMQQKso44MCW/7240be6a424e081013c629899a4e1c6b/Koepka.jpg",
+              "imageLink": "//images.ctfassets.net/p0ykbbcw3bn6/10NsXKcNwycMQQKso44MCW/7240be6a424e081013c629899a4e1c6b/Koepka.jpg",
+              "summary": "The Travelers Championship tees off on June 21 at TPC River Highlands in Cromwell, CT. Dustin Johnson opened as the 12/1 favorite with U.S. Open champion Brooks Koepka right behind him at 14/1.",
+              "updated": "2018-06-18T20:15-04:00",
+              "created": "2018-06-19T00:34:54.974Z",
+              "sectionName": "GOLF",
+              "sectionColor": "",
+              "sectionSlug": "golf-odds",
+              "href": "travelers-championship-odds",
+              "title": "Travelers Championship Odds: Dustin Johnson slight favorite over Brooks Koepka"
+            },
+            {
+              "headline": "Nationals bolster bullpen, trade for Royals closer Kelvin Herrera",
+              "id": "Rk9iYv82MEumcsUgagm84",
+              "url": "nationals-trade-for-kelvin-herrera",
+              "imageAlt": "The Nationals traded for Royals closer Kelvin Herrera, who has a 1.05 ERA this season. ",
+              "authors": [
+                {
+                  "id": "xPd2bNx504qowgUG0IIie",
+                  "title": "Staff Writer",
+                  "fullname": "Andrew Albert",
+                  "company": "BetChicago",
+                  "twitter": "@AndrewJAlbert01"
+                }
+              ],
+              "image": "//images.ctfassets.net/p0ykbbcw3bn6/1CTUsxx7Ekeq2iGiO0AAoy/5bbdf31ae701f2f201393fb178e19d89/AP_18125235110051.jpg",
+              "imageLink": "//images.ctfassets.net/p0ykbbcw3bn6/1CTUsxx7Ekeq2iGiO0AAoy/5bbdf31ae701f2f201393fb178e19d89/AP_18125235110051.jpg",
+              "summary": "The Washington Nationals traded for Kansas City closer Kelvin Herrera, and are officially going for it all this year. ",
+              "updated": "2018-06-18T20:00-04:00",
+              "created": "2018-06-19T00:20:29.184Z",
+              "sectionName": "MLB",
+              "sectionColor": "",
+              "sectionSlug": "mlb-betting",
+              "href": "nationals-trade-for-kelvin-herrera",
+              "title": "Nationals bolster bullpen, trade for Royals closer Kelvin Herrera"
+            },
+            {
+              "headline": "Updated Super Bowl odds: Bettors backing the Bears",
+              "id": "6u5pihie1UCiSm2YOYAcmW",
+              "url": "updated-super-bowl-odds-bears",
+              "imageAlt": "Bettors are buying the Bears and Mitchell Trubisky to be improved in 2018. ",
+              "authors": [
+                {
+                  "id": "2dwagaejryiIAkOIiuq4y2",
+                  "title": "Night Editor",
+                  "fullname": "Thomas Casale",
+                  "company": "BetChicago",
+                  "twitter": "@ThePigskinGuy"
+                }
+              ],
+              "image": "//images.ctfassets.net/p0ykbbcw3bn6/3dRESLTGZGo688s0OAMWyi/680a085a4f897815c70cf20199f98820/Mitch.jpg",
+              "imageLink": "//images.ctfassets.net/p0ykbbcw3bn6/3dRESLTGZGo688s0OAMWyi/680a085a4f897815c70cf20199f98820/Mitch.jpg",
+              "summary": "Based on this week's odds at the Westgate Las Vegas SuperBook, no team's Super Bowl odds have moved in the right direction more than the Bears' since opening number were posted in January.",
+              "updated": "2018-06-18T18:00-04:00",
+              "created": "2018-06-18T23:01:43.182Z",
+              "sectionName": "NFL",
+              "sectionColor": "",
+              "sectionSlug": "nfl-betting",
+              "href": "updated-super-bowl-odds-bears",
+              "title": "Updated Super Bowl odds: Bettors backing the Bears"
+            },
+            {
+              "headline": "Odds to win 2019 NCAA Tournament: Villanova drops down betting board with NBA departures",
+              "id": "4yjNXeiwVqMsUKmaM2OEOO",
+              "url": "ncaa-tournament-2019-odds-villanova",
+              "imageAlt": "Jay Wright's team will have to prove they belong among the favorites after three starters left for the NBA.",
+              "authors": [
+                {
+                  "id": "xPd2bNx504qowgUG0IIie",
+                  "title": "Staff Writer",
+                  "fullname": "Andrew Albert",
+                  "company": "BetChicago",
+                  "twitter": "@AndrewJAlbert01"
+                }
+              ],
+              "image": "//images.ctfassets.net/p0ykbbcw3bn6/52F2ho09XWg4WaQeQ4gogQ/d8e58ca8fa392fdc4f99507fa6b08bff/AP_18085028188660.jpg",
+              "imageLink": "//images.ctfassets.net/p0ykbbcw3bn6/52F2ho09XWg4WaQeQ4gogQ/d8e58ca8fa392fdc4f99507fa6b08bff/AP_18085028188660.jpg",
+              "summary": "Villanova's odds to win the 2018 NCAA Tournament were lengthened from 8/1 to 30/1 after three starters left school for the NBA Draft. ",
+              "updated": "2018-06-18T16:14-04:00",
+              "created": "2018-06-18T19:33:13.457Z",
+              "sectionName": "NCAA BB",
+              "sectionColor": "",
+              "sectionSlug": "ncaa-basketball-betting",
+              "href": "ncaa-tournament-2019-odds-villanova",
+              "title": "Odds to win 2019 NCAA Tournament: Villanova drops down betting board with NBA departures"
+            },
+            {
+              "headline": "World Cup betting wrap, Day 5: Harry Kane's late heroics give England dramatic win",
+              "id": "4KTPCnEuPCaqGWOs6QqMWM",
+              "url": "world-cup-betting-england-harry-kane",
+              "imageAlt": "Harry Kane became the fifth player to score two or more goals in a game at the 2018 World Cup.",
+              "authors": [
+                {
+                  "id": "3UU3Q4di3SA4sCyYcC2Y4S",
+                  "title": "Staff Writer",
+                  "fullname": "Chris Mascaro",
+                  "company": "Bet Chicago",
+                  "twitter": "@CCMascaro"
+                }
+              ],
+              "image": "//images.ctfassets.net/p0ykbbcw3bn6/4iDbBLyF442iw6C4WCkouo/fd5962b0c5ed0e35bee31f4837930c53/AP_18169726166656.jpg",
+              "imageLink": "//images.ctfassets.net/p0ykbbcw3bn6/4iDbBLyF442iw6C4WCkouo/fd5962b0c5ed0e35bee31f4837930c53/AP_18169726166656.jpg",
+              "summary": "After a wild Sunday at the World Cup, Monday seemed to provide a return to normalcy ... until England took the pitch.",
+              "updated": "2018-06-18T16:00-04:00",
+              "created": "2018-06-18T17:50:44.452Z",
+              "sectionName": "SOCCER",
+              "sectionColor": "",
+              "sectionSlug": "soccer-betting",
+              "href": "world-cup-betting-england-harry-kane",
+              "title": "World Cup betting wrap, Day 5: Harry Kane's late heroics give England dramatic win"
+            },
+            {
+              "headline": "Capitals coach Barry Trotz resigns after leading team to Stanley Cup title",
+              "id": "ZGTFX4pqw0Yaagm8UQgOA",
+              "url": "capitals-coach-barry-trotz-resigns",
+              "imageAlt": "Barry Trotz led the Washington Capitals to their first Stanley Cup victory in franchise history. ",
+              "authors": [
+                {
+                  "id": "xPd2bNx504qowgUG0IIie",
+                  "title": "Staff Writer",
+                  "fullname": "Andrew Albert",
+                  "company": "BetChicago",
+                  "twitter": "@AndrewJAlbert01"
+                }
+              ],
+              "image": "//images.ctfassets.net/p0ykbbcw3bn6/1KdycWUbDKqgUmgKwMAQ8O/b50cf595b9d21fb7de1ccef9a63bc4fd/AP_18154684232375.jpg",
+              "imageLink": "//images.ctfassets.net/p0ykbbcw3bn6/1KdycWUbDKqgUmgKwMAQ8O/b50cf595b9d21fb7de1ccef9a63bc4fd/AP_18154684232375.jpg",
+              "summary": "Capitals coach Barry Trotz has stepped down just days after the team won the first Stanley Cup in franchise history. ",
+              "updated": "2018-06-18T15:33-04:00",
+              "created": "2018-06-18T19:32:57.150Z",
+              "sectionName": "NHL",
+              "sectionColor": "",
+              "sectionSlug": "nhl-betting",
+              "href": "capitals-coach-barry-trotz-resigns",
+              "title": "Capitals coach Barry Trotz resigns after leading team to Stanley Cup title"
+            }
+          ],
+          "trending": [
+            {
+              "headline": "NBA Draft may shake out in multitude of ways for Bulls",
+              "id": "3JsVRfWte8UiCaUSmgcmsc",
+              "url": "nba-draft-2018-bulls",
+              "imageAlt": "Could Michael Porter Jr. fall to Bulls at No. 7 in 2018 NBA Draft?",
+              "authors": [],
+              "image": "//images.ctfassets.net/p0ykbbcw3bn6/13ZTP7ehpyEAGm6a6OWa0q/03bf55c189316ee9e415424d195c88e7/AP_18074490043880.jpg",
+              "imageLink": "//images.ctfassets.net/p0ykbbcw3bn6/13ZTP7ehpyEAGm6a6OWa0q/03bf55c189316ee9e415424d195c88e7/AP_18074490043880.jpg",
+              "summary": "The Chicago Bulls enter an important 2018 NBA Draft with plenty of possibilities as they try to take a step forward with their rebuild. ",
+              "updated": "2018-06-19T16:46-04:00",
+              "created": "2018-06-19T20:38:33.737Z",
+              "sectionName": "NBA",
+              "sectionColor": "",
+              "sectionSlug": "nba-betting",
+              "href": "nba-draft-2018-bulls",
+              "title": "NBA Draft may shake out in multitude of ways for Bulls"
+            },
+            {
+              "headline": "College football 2018 season win totals: Shopping around for the best numbers",
+              "id": "5B91ogenviOCs6ECa6WGmC",
+              "url": "college-football-2018-season-win-totals-betonline",
+              "imageAlt": "Las Vegas values Notre Dame more than offshore oddsmakers. ",
+              "authors": [],
+              "image": "//images.ctfassets.net/p0ykbbcw3bn6/3S7F9pD7ZYIcWImgA0QAUY/f092701edd23b1d5366d7436e2def40a/Winbush.jpg",
+              "imageLink": "//images.ctfassets.net/p0ykbbcw3bn6/3S7F9pD7ZYIcWImgA0QAUY/f092701edd23b1d5366d7436e2def40a/Winbush.jpg",
+              "summary": "BetOnline updated its college football win totals about month after the South Point in Las Vegas released its numbers. While most of the numbers are close, there are discrepancies with a few big-name teams that will catch the eye of bettors.",
+              "updated": "2018-06-19T09:30-04:00",
+              "created": "2018-06-19T13:29:52.754Z",
+              "sectionName": "NCAA FB",
+              "sectionColor": "",
+              "sectionSlug": "college-football-betting",
+              "href": "college-football-2018-season-win-totals-betonline",
+              "title": "College football 2018 season win totals: Shopping around for the best numbers"
+            },
+            {
+              "headline": "Fantasy Football: Updated QB rankings",
+              "id": "2U2xzcmV5YgyseGoyIAe02",
+              "url": "fantasy-football-updated-qb-rankings",
+              "imageAlt": "Russell Wilson was fantasy football's top scoring QB in 2017. ",
+              "authors": [],
+              "image": "//images.ctfassets.net/p0ykbbcw3bn6/4NE4LRI2pq4agYCusIEMs0/a122a09db62abf24ece2110fef9dafa8/Wilson.jpg",
+              "imageLink": "//images.ctfassets.net/p0ykbbcw3bn6/4NE4LRI2pq4agYCusIEMs0/a122a09db62abf24ece2110fef9dafa8/Wilson.jpg",
+              "summary": "The quarterback position is loaded for fantasy football owners. It’s a good year to wait until later in drafts to select a QB, but if you decide to grab one of the studs, here’s how we rank the Top 10. ",
+              "updated": "2018-06-19T10:53-04:00",
+              "created": "2018-06-19T14:52:54.781Z",
+              "sectionName": "FANTASY FOOTBALL",
+              "sectionColor": "",
+              "sectionSlug": "fantasy-football",
+              "href": "fantasy-football-updated-qb-rankings",
+              "title": "Fantasy Football: Updated QB rankings"
+            },
+            {
+              "headline": "World Cup Day 6 betting preview: Stars ready to shine on Tuesday",
+              "id": "5MKpQIropUwMyMgKKCgs04",
+              "url": "world-cup-day-6-betting-preview",
+              "imageAlt": "Bayern Munich standout Robert Lewandowski leads Poland into Group H, which will be up for grabs",
+              "authors": [],
+              "image": "//images.ctfassets.net/p0ykbbcw3bn6/1DxhOBldNCYEYqq8sOSI4U/663a8637c3dac83359599879729e4046/AP_18139699957774.jpg",
+              "imageLink": "//images.ctfassets.net/p0ykbbcw3bn6/1DxhOBldNCYEYqq8sOSI4U/663a8637c3dac83359599879729e4046/AP_18139699957774.jpg",
+              "summary": "Tuesday’s World Cup action features plenty of star power, with James Rodriguez looking to guide Colombia past Japan, Robert Lewandowski leading Poland against Senegal, and Mo Salah expected to be ready for Russia.",
+              "updated": "2018-06-18T15:01-04:00",
+              "created": "2018-06-18T19:00:23.176Z",
+              "sectionName": "SOCCER",
+              "sectionColor": "",
+              "sectionSlug": "soccer-betting",
+              "href": "world-cup-day-6-betting-preview",
+              "title": "World Cup Day 6 betting preview: Stars ready to shine on Tuesday"
+            },
+            {
+              "headline": "World Cup 2018: Portugal's Ronaldo masterful with hat trick vs Spain",
+              "id": "3ju7oyrnjOyomESMcUcQwU",
+              "url": "world-cup-2018-ronaldo-hat-trick",
+              "imageAlt": "Portugal's Cristiano Ronaldo applauds after Portugal's 3-3 draw with Spain on June 15, 2018.",
+              "authors": [],
+              "image": "//images.ctfassets.net/p0ykbbcw3bn6/1eitzwCOZmE866seMaCKM0/5eab9031170a9599cae2df8f0d2b3ebb/AP_18166726923272.jpg",
+              "imageLink": "//images.ctfassets.net/p0ykbbcw3bn6/1eitzwCOZmE866seMaCKM0/5eab9031170a9599cae2df8f0d2b3ebb/AP_18166726923272.jpg",
+              "summary": "Cristiano Ronaldo became the oldest player to score a hat trick in the World Cup in a 3-3 draw with Spain on Friday. Earlier on the same day, news broke that the soccer star agreed to a $21.8-million fine for tax evasion.",
+              "updated": "2018-06-15T15:00-07:00",
+              "created": "2018-06-15T22:48:34.193Z",
+              "sectionName": "SOCCER",
+              "sectionColor": "",
+              "sectionSlug": "soccer-betting",
+              "href": "world-cup-2018-ronaldo-hat-trick",
+              "title": "World Cup 2018: Portugal's Ronaldo masterful with hat trick vs Spain"
+            },
+            {
+              "headline": "World Cup betting wrap, Day 6: OVERs and own goals the story early on",
+              "id": "205071Wluc8Ag2EcgC8Wmg",
+              "url": "world-cup-betting-japan-colombia-poland-senegal",
+              "imageAlt": "Senegal's M'Baye Niang celebrates his goal during his country's 2-1 win over Poland Tuesday.",
+              "authors": [],
+              "image": "//images.ctfassets.net/p0ykbbcw3bn6/29gUPm3d9mYG6EOSECOkYa/a5783597c042950eda39dbbe914681ce/AP_18170591300368.jpg",
+              "imageLink": "//images.ctfassets.net/p0ykbbcw3bn6/29gUPm3d9mYG6EOSECOkYa/a5783597c042950eda39dbbe914681ce/AP_18170591300368.jpg",
+              "summary": "Two underdogs pulled off the upset early Tuesday, with both Japan and Senegal winning. Mohammed Salah returned for Egypt, but it wasn't enough.",
+              "updated": "2018-06-19T14:03-04:00",
+              "created": "2018-06-19T17:59:35.852Z",
+              "sectionName": "SOCCER",
+              "sectionColor": "",
+              "sectionSlug": "soccer-betting",
+              "href": "world-cup-betting-japan-colombia-poland-senegal",
+              "title": "World Cup betting wrap, Day 6: OVERs and own goals the story early on"
+            },
+            {
+              "headline": "Brazil's odds vs. Costa Rica adjusted after Neymar limps out of training with ankle injury",
+              "id": "39qq9CEvM4UYwqU6Q6ScsY",
+              "url": "brazil-costa-rica-odds-neymar-injury-ankle",
+              "imageAlt": "Brazil star Neymar limped out of training on Tuesday amid injury concerns ",
+              "authors": [],
+              "image": "//images.ctfassets.net/p0ykbbcw3bn6/4TDwfbnmAMIsAMoAAeM0me/8841b735250b881a2eb772b53c5f298d/AP_18168732050521__1_.jpg",
+              "imageLink": "//images.ctfassets.net/p0ykbbcw3bn6/4TDwfbnmAMIsAMoAAeM0me/8841b735250b881a2eb772b53c5f298d/AP_18168732050521__1_.jpg",
+              "summary": "Neymar left Brazil's training on Tuesday with an apparent right ankle injury, and oddsmakers in Las Vegas were quick to adjust the betting lines ahead of Friday's match vs. Costa Rica.",
+              "updated": "2018-06-19T12:38-04:00",
+              "created": "2018-06-19T16:36:13.767Z",
+              "sectionName": "SOCCER",
+              "sectionColor": "",
+              "sectionSlug": "soccer-betting",
+              "href": "brazil-costa-rica-odds-neymar-injury-ankle",
+              "title": "Brazil's odds vs. Costa Rica adjusted after Neymar limps out of training with ankle injury"
+            },
+            {
+              "headline": "Updated Super Bowl odds: Bettors backing the Bears",
+              "id": "6u5pihie1UCiSm2YOYAcmW",
+              "url": "updated-super-bowl-odds-bears",
+              "imageAlt": "Bettors are buying the Bears and Mitchell Trubisky to be improved in 2018. ",
+              "authors": [],
+              "image": "//images.ctfassets.net/p0ykbbcw3bn6/3dRESLTGZGo688s0OAMWyi/680a085a4f897815c70cf20199f98820/Mitch.jpg",
+              "imageLink": "//images.ctfassets.net/p0ykbbcw3bn6/3dRESLTGZGo688s0OAMWyi/680a085a4f897815c70cf20199f98820/Mitch.jpg",
+              "summary": "Based on this week's odds at the Westgate Las Vegas SuperBook, no team's Super Bowl odds have moved in the right direction more than the Bears' since opening number were posted in January.",
+              "updated": "2018-06-18T18:00-04:00",
+              "created": "2018-06-18T23:01:43.182Z",
+              "sectionName": "NFL",
+              "sectionColor": "",
+              "sectionSlug": "nfl-betting",
+              "href": "updated-super-bowl-odds-bears",
+              "title": "Updated Super Bowl odds: Bettors backing the Bears"
+            },
+            {
+              "headline": "Marvin Bagley a 'near lock' to go No. 2 to the Kings",
+              "id": "4Wz35dnHgs6w408c0yu4Ok",
+              "url": "marvin-bagley-near-lock-kings",
+              "imageAlt": "Marvin Bagley III is a \"near lock\" to be drafted second overall by the Kings.",
+              "authors": [],
+              "image": "//images.ctfassets.net/p0ykbbcw3bn6/crCjbeS6WIeyG2GgIyKOm/e38146546a4e8bcd05108c12fbd54ea4/AP_18163018032587.jpg",
+              "imageLink": "//images.ctfassets.net/p0ykbbcw3bn6/crCjbeS6WIeyG2GgIyKOm/e38146546a4e8bcd05108c12fbd54ea4/AP_18163018032587.jpg",
+              "summary": "Reports have Marvin Bagley III going to the Kings. Is it good odds to bet on this?",
+              "updated": "2018-06-19T14:00-04:00",
+              "created": "2018-06-19T16:45:47.806Z",
+              "sectionName": "NBA",
+              "sectionColor": "",
+              "sectionSlug": "nba-betting",
+              "href": "marvin-bagley-near-lock-kings",
+              "title": "Marvin Bagley a 'near lock' to go No. 2 to the Kings"
+            },
+            {
+              "headline": "Belmont Stakes 2018: A horse-by-horse look at field, plus picks",
+              "id": "1RAG5EKSOMEM0oOM426IAy",
+              "url": "belmont-stakes-2018-a-horse-by-horse-look-at-field-plus-picks",
+              "imageAlt": "Justify gallops at Belmont Park two days before attempting to complete his Triple Crown quest.",
+              "authors": [],
+              "image": "//images.ctfassets.net/p0ykbbcw3bn6/36oEtRNHgAI6sIgoiEmQ8y/9aa8c8bb4cd07e8eac906634ec4dae5b/AP_18158503831542.jpg",
+              "imageLink": "//images.ctfassets.net/p0ykbbcw3bn6/36oEtRNHgAI6sIgoiEmQ8y/9aa8c8bb4cd07e8eac906634ec4dae5b/AP_18158503831542.jpg",
+              "summary": "Let's look at the field -- and make some picks -- for the $1.5 million Belmont Stakes, where Justify tries to become the 13th Triple Crown winner in horse racing history.",
+              "updated": "2018-06-09T11:39:54.483Z",
+              "created": "2018-06-09T11:39:54.483Z",
+              "sectionName": "HORSE RACING",
+              "sectionColor": "",
+              "sectionSlug": "horse-racing-odds",
+              "href": "belmont-stakes-2018-a-horse-by-horse-look-at-field-plus-picks",
+              "title": "Belmont Stakes 2018: A horse-by-horse look at field, plus picks"
+            },
+            {
+              "headline": "Bears to wear orange jerseys twice in 2018",
+              "id": "4tlkoPUN96eICyGKgaiuum",
+              "url": "bears-wear-orange-jerseys-2018",
+              "imageAlt": "Historically, when the Bears wear orange, good things happen for them.",
+              "authors": [],
+              "image": "//images.ctfassets.net/p0ykbbcw3bn6/1dFjXLag000CQcq4Gm8a2e/4a797dd68ca3817410ec69e903ca9d45/AP_051113016078.jpg",
+              "imageLink": "//images.ctfassets.net/p0ykbbcw3bn6/1dFjXLag000CQcq4Gm8a2e/4a797dd68ca3817410ec69e903ca9d45/AP_051113016078.jpg",
+              "summary": "The Bears will wear their orange jerseys in two games this season, the first time they've donned them since 2011.",
+              "updated": "2018-06-16T16:45-04:00",
+              "created": "2018-06-16T20:52:35.897Z",
+              "sectionName": "NFL",
+              "sectionColor": "",
+              "sectionSlug": "nfl-betting",
+              "href": "bears-wear-orange-jerseys-2018",
+              "title": "Bears to wear orange jerseys twice in 2018"
+            },
+            {
+              "headline": "Odds to win 2019 NCAA Tournament: Villanova drops down betting board with NBA departures",
+              "id": "4yjNXeiwVqMsUKmaM2OEOO",
+              "url": "ncaa-tournament-2019-odds-villanova",
+              "imageAlt": "Jay Wright's team will have to prove they belong among the favorites after three starters left for the NBA.",
+              "authors": [],
+              "image": "//images.ctfassets.net/p0ykbbcw3bn6/52F2ho09XWg4WaQeQ4gogQ/d8e58ca8fa392fdc4f99507fa6b08bff/AP_18085028188660.jpg",
+              "imageLink": "//images.ctfassets.net/p0ykbbcw3bn6/52F2ho09XWg4WaQeQ4gogQ/d8e58ca8fa392fdc4f99507fa6b08bff/AP_18085028188660.jpg",
+              "summary": "Villanova's odds to win the 2018 NCAA Tournament were lengthened from 8/1 to 30/1 after three starters left school for the NBA Draft. ",
+              "updated": "2018-06-18T16:14-04:00",
+              "created": "2018-06-18T19:33:13.457Z",
+              "sectionName": "NCAA BB",
+              "sectionColor": "",
+              "sectionSlug": "ncaa-basketball-betting",
+              "href": "ncaa-tournament-2019-odds-villanova",
+              "title": "Odds to win 2019 NCAA Tournament: Villanova drops down betting board with NBA departures"
+            },
+            {
+              "headline": "Tiger Woods likely to miss cut at U.S. Open, sharp bettors set to cash",
+              "id": "49XINTFJiUs0UymCmw6oMs",
+              "url": "tiger-woods-misses-cut-us-open-2018-odds",
+              "imageAlt": "It was a rough two days for Tiger Woods on Long Island.",
+              "authors": [],
+              "image": "//images.ctfassets.net/p0ykbbcw3bn6/4T402ukpygqOEYyEWw4cso/c9f63d8307a8b581201eb8b8b8fe1298/AP_18166560935578.jpg",
+              "imageLink": "//images.ctfassets.net/p0ykbbcw3bn6/4T402ukpygqOEYyEWw4cso/c9f63d8307a8b581201eb8b8b8fe1298/AP_18166560935578.jpg",
+              "summary": "Sharp bettors who faded Tiger Woods ahead of the 2018 U.S. Open are getting ready to cash their tickets, as the former world No. 1 looks likely to miss the cut.",
+              "updated": "2018-06-15T13:07-04:00",
+              "created": "2018-06-15T17:08:21.876Z",
+              "sectionName": "GOLF",
+              "sectionColor": "",
+              "sectionSlug": "golf-odds",
+              "href": "tiger-woods-misses-cut-us-open-2018-odds",
+              "title": "Tiger Woods likely to miss cut at U.S. Open, sharp bettors set to cash"
+            },
+            {
+              "headline": "Chris Paul reportedly thinks LeBron James will end up with Lakers, betting market agrees",
+              "id": "ief7ZsojXGmU8ko864sOe",
+              "url": "chris-paul-lebron-james-lakers-odds",
+              "imageAlt": "Chris Paul believes LeBron will end up in LA, but that won't stop him from recruiting. ",
+              "authors": [],
+              "image": "//images.ctfassets.net/p0ykbbcw3bn6/ajla8f40piKuWmSUekOoS/41038ee0f8824ff848f3c0680d295525/AP_27369510396.jpg",
+              "imageLink": "//images.ctfassets.net/p0ykbbcw3bn6/ajla8f40piKuWmSUekOoS/41038ee0f8824ff848f3c0680d295525/AP_27369510396.jpg",
+              "summary": "Yesterday, ESPN’s Steven A. Smith said on his podcast that Chris Paul believes LeBron will end up in Los Angeles with the Lakers. ",
+              "updated": "2018-06-19T14:22-04:00",
+              "created": "2018-06-19T18:21:15.720Z",
+              "sectionName": "NBA",
+              "sectionColor": "",
+              "sectionSlug": "nba-betting",
+              "href": "chris-paul-lebron-james-lakers-odds",
+              "title": "Chris Paul reportedly thinks LeBron James will end up with Lakers, betting market agrees"
+            },
+            {
+              "headline": "Fantasy Showdown: Drew Brees vs Carson Wentz",
+              "id": "3RQ8S9UJF6G2CoqQUGgoiO",
+              "url": "fantasy-showdown-drew-brees-vs-carson-wentz",
+              "imageAlt": "Saints QB Drew Brees has been a top fantasy player for a decade.",
+              "authors": [],
+              "image": "//images.ctfassets.net/p0ykbbcw3bn6/6jkoxZNcLmsq4AekyEIGqA/5c2147a2559d863826eaddfcebfb892b/Brees.jpg",
+              "imageLink": "//images.ctfassets.net/p0ykbbcw3bn6/6jkoxZNcLmsq4AekyEIGqA/5c2147a2559d863826eaddfcebfb892b/Brees.jpg",
+              "summary": "Carson Wentz was the MVP favorite until suffering a season-ending knee injury in Week 14. Drew Brees took a rare fantasy backseat to running backs Alvin Kamara and Mark Ingram. Who will have a better fantasy season in 2018?",
+              "updated": "2018-06-17T13:30-04:00",
+              "created": "2018-06-17T16:23:18.178Z",
+              "sectionName": "FANTASY FOOTBALL",
+              "sectionColor": "",
+              "sectionSlug": "fantasy-football",
+              "href": "fantasy-showdown-drew-brees-vs-carson-wentz",
+              "title": "Fantasy Showdown: Drew Brees vs Carson Wentz"
+            },
+            {
+              "headline": "Fantasy baseball: White Sox's Dylan Covey leads pitchers to stream in this week",
+              "id": "KscHvAZtcGA0OuiIQAO8Y",
+              "url": "fantasy-baseball-pitchers-to-stream-dylan-covey",
+              "imageAlt": "Dylan Covey is having a great bounce-back year after a rough rookie season.",
+              "authors": [],
+              "image": "//images.ctfassets.net/p0ykbbcw3bn6/7kTnjhYcuW80GOieUkUuQS/a909885d4a7740092ce28c52d42191e1/AP_18148741321901.jpg",
+              "imageLink": "//images.ctfassets.net/p0ykbbcw3bn6/7kTnjhYcuW80GOieUkUuQS/a909885d4a7740092ce28c52d42191e1/AP_18148741321901.jpg",
+              "summary": "If you need starting pitching in fantasy baseball, these are some good pickups, available in most leagues.",
+              "updated": "2018-06-18T13:00-04:00",
+              "created": "2018-06-18T17:00:45.062Z",
+              "sectionName": "MLB",
+              "sectionColor": "",
+              "sectionSlug": "mlb-betting",
+              "href": "fantasy-baseball-pitchers-to-stream-dylan-covey",
+              "title": "Fantasy baseball: White Sox's Dylan Covey leads pitchers to stream in this week"
+            },
+            {
+              "headline": "Mike Hoffman traded twice in midst of investigation into fiance's cyberbullying",
+              "id": "4vZP9XIoq42Kk0CqY8m6uA",
+              "url": "mike-hoffman-traded-fiance-cyberbullying",
+              "imageAlt": "Mike Hoffman has been traded twice in the last day. ",
+              "authors": [],
+              "image": "//images.ctfassets.net/p0ykbbcw3bn6/7HWnHRohhuCWC8imme8CUy/17c8b701a4d76a43ae695aa856586777/AP_18170455399204.jpg",
+              "imageLink": "//images.ctfassets.net/p0ykbbcw3bn6/7HWnHRohhuCWC8imme8CUy/17c8b701a4d76a43ae695aa856586777/AP_18170455399204.jpg",
+              "summary": "Hoffman was been traded to the San Jose Sharks, who then turned around and traded him to the Florida Panthers amid a cyberbullying investigation involving his fiancee. ",
+              "updated": "2018-06-19T13:18-04:00",
+              "created": "2018-06-19T17:21:41.050Z",
+              "sectionName": "NHL",
+              "sectionColor": "",
+              "sectionSlug": "nhl-betting",
+              "href": "mike-hoffman-traded-fiance-cyberbullying",
+              "title": "Mike Hoffman traded twice in midst of investigation into fiance's cyberbullying"
+            }
+          ],
+          "league": [],
+          "author": [],
+          "mainMenus": [
+            {
+              "href": "/nfl-betting",
+              "text": "NFL",
+              "submenu": []
+            },
+            {
+              "href": "/ncaamb",
+              "text": "NCAAM",
+              "submenu": [
+                {
+                  "href": "/ncaamb/home",
+                  "text": "Home"
+                },
+                {
+                  "href": "/ncaamb/news",
+                  "text": "News"
+                },
+                {
+                  "href": "/ncaamb/schedule",
+                  "text": "Schedule"
+                },
+                {
+                  "href": "/ncaamb/standings",
+                  "text": "Standings"
+                },
+                {
+                  "href": "/ncaamb/odds",
+                  "text": "Odds"
+                }
+              ]
+            },
+            {
+              "href": "/nba-betting",
+              "text": "NBA",
+              "submenu": []
+            },
+            {
+              "href": "/nhl-betting",
+              "text": "NHL",
+              "submenu": []
+            },{
+              "href": "/golf-odds",
+              "text": "GOLF",
+              "submenu": [
+                {
+                  "href": "/golf-odds/home",
+                  "text": "Home"
+                },
+                {
+                  "href": "/golf-odds/news",
+                  "text": "News"
+                },
+                {
+                  "href": "/golf-odds/leaderboard",
+                  "text": "Leaderboard"
+                },
+                {
+                  "href": "/golf-odds/schedule",
+                  "text": "Schedule"
+                },
+                {
+                  "href": "/golf-odds/world-rankings",
+                  "text": "World Rankings"
+                },
+                {
+                  "href": "/golf-odds/odds",
+                  "text": "Odds"
+                }
+              ]
+            },
+            {
+              "href": "/mlb-betting",
+              "text": "MLB",
+              "submenu": [
+                {
+                  "href": "/mlb-betting/home",
+                  "text": "Home"
+                },
+                {
+                  "href": "/mlb-betting/news",
+                  "text": "News"
+                },
+                {
+                  "href": "/mlb-betting/scores",
+                  "text": "Scoreboard"
+                },
+                {
+                  "href": "/mlb-betting/schedule",
+                  "text": "Schedule"
+                },
+                {
+                  "href": "/mlb-betting/standings",
+                  "text": "Standings"
+                },
+                {
+                  "href": "/mlb-betting/odds",
+                  "text": "Odds"
+                }
+              ]
+            },
+            {
+              "href": "/fantasy-football",
+              "text": "FANTASY",
+              "submenu": []
+            },
+            {
+              "href": "/soccer-betting",
+              "text": "SOCCER",
+              "submenu": []
+            }
+          ],
+          "moreMenus": [
+            {
+              "href": "/nascar-betting",
+              "text": "NASCAR",
+              "submenu": []
+            },
+            {
+              "href": "/college-football-betting",
+              "text": "NCAA FB",
+              "submenu": []
+            },
+            {
+              "href": "/nhl-betting",
+              "text": "NHL",
+              "submenu": []
+            },
+            {
+              "href": "/ncaa-basketball-betting",
+              "text": "NCAA BB",
+              "submenu": []
+            },
+            {
+              "href": "/horse-racing-odds",
+              "text": "HORSE RACING",
+              "submenu": []
+            }
+          ],
+          "interactiveList": [
+            {
+              href: 'https://betchicago.chalkline.com/',
+              text: 'BETTING GUIDES',
+              submenu: [],
+            },
+            {
+              href: 'https://betchicago.chalkline.com/',
+              text: 'CONTACT US',
+              submenu: [],
+            },
+            {
+              href: 'https://betchicago.chalkline.com/',
+              text: 'WHY JOIN BC',
+              submenu: [],
+            },
+            {
+              href: 'https://betchicago.chalkline.com/',
+              text: 'USER LOGIN',
+              submenu: [],
+            },
+          ],
+          "legalList": [
+            {
+              href: 'https://betchicago.chalkline.com/',
+              text: 'ABOUT BC',
+              submenu: [],
+            },
+            {
+              href: 'https://betchicago.chalkline.com/',
+              text: 'TERMS OF USE',
+              submenu: [],
+            },
+            {
+              href: 'https://betchicago.chalkline.com/',
+              text: 'PRIVACY POLICY',
+              submenu: [],
+            },
+            {
+              href: 'https://betchicago.chalkline.com/',
+              text: 'COPYRIGHT',
+              submenu: [],
+            },
+            {
+              href: 'https://betchicago.chalkline.com/',
+              text: 'USER LOGIN',
+              submenu: [],
+            },
+          ],
+          "anchorPages": [
+            {
+              "href": "/bears-betting",
+              "text": "Chicago Bears Betting"
+            },
+            {
+              "href": "/belmont-stakes-odds-picks",
+              "text": "Belmont Stakes"
+            },
+            {
+              "href": "/cubs-betting-odds",
+              "text": "Cubs"
+            },
+            {
+              "href": "/mlb-all-star-game",
+              "text": "MLB All Star Game"
+            },
+            {
+              "href": "/nba-finals",
+              "text": "NBA Finals"
+            },
+            {
+              "href": "/nba-playoffs",
+              "text": "NBA Playoffs"
+            },
+            {
+              "href": "/nfl-divisional-previews",
+              "text": "NFL Team Betting Previews"
+            },
+            {
+              "href": "/nfl-fantasy-draft",
+              "text": "NFL Fantasy Draft"
+            },
+            {
+              "href": "/notre-dame-football-odds-betting",
+              "text": "Notre Dame football"
+            },
+            {
+              "href": "/white-sox-betting-odds",
+              "text": "White Sox"
+            },
+            {
+              "href": "/world-cup-2018",
+              "text": "World Cup 2018"
+            }
+          ]
+        }
+      }
+    </script>
+    <div id="root"></div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start`.
+      To create a production bundle, use `npm run build`.
+    -->
+  </body>
+</html>

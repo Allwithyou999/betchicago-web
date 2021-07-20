@@ -1,0 +1,359 @@
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  color: #111;
+}
+
+body * {
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span {
+  margin: 0;
+}
+
+h1 {
+  font-size: 25px;
+  line-height: 28px;
+}
+
+h2 {
+  font-size: 21px;
+  line-height: 24px;
+}
+
+h4 {
+  font-size: 17px;
+  line-height: 28px;
+}
+
+h6 {
+  font-size: 15px;
+  line-height: 18px;
+  font-weight: 400;
+}
+
+p {
+  font-weight: 300;
+  font-size: 17px;
+  line-height: 23px;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('https://firebasestorage.googleapis.com/v0/b/bet-chicago.appspot.com/o/staticassests%2Ffonts%2FRoboto-Light.ttf?alt=media');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('https://firebasestorage.googleapis.com/v0/b/bet-chicago.appspot.com/o/staticassests%2Ffonts%2FRoboto-Regular.ttf?alt=media');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('https://firebasestorage.googleapis.com/v0/b/bet-chicago.appspot.com/o/staticassests%2Ffonts%2FRoboto-Medium.ttf?alt=media');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('https://firebasestorage.googleapis.com/v0/b/bet-chicago.appspot.com/o/staticassests%2Ffonts%2FRoboto-Bold.ttf?alt=media');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'AvenirNextCondensed';
+  src: url('https://firebasestorage.googleapis.com/v0/b/bet-chicago.appspot.com/o/staticassests%2Ffonts%2FAvenirNextCondensed-Regular.ttf?alt=media');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'AvenirNextCondensed';
+  src: url('https://firebasestorage.googleapis.com/v0/b/bet-chicago.appspot.com/o/staticassests%2Ffonts%2FAvenirNextCondensed-Medium.ttf?alt=media');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'AvenirNextCondensed';
+  src: url('https://firebasestorage.googleapis.com/v0/b/bet-chicago.appspot.com/o/staticassests%2Ffonts%2FAvenirNextCondensed-DemiBold.ttf?alt=media');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'AvenirNextCondensed';
+  src: url('https://firebasestorage.googleapis.com/v0/b/bet-chicago.appspot.com/o/staticassests%2Ffonts%2FAvenirNextCondensed-Bold.ttf?alt=media');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'AvenirNext';
+  src: url('https://firebasestorage.googleapis.com/v0/b/bet-chicago.appspot.com/o/staticassests%2Ffonts%2FAvenirNext-Regular.ttf?alt=media');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'AvenirNext';
+  src: url('https://firebasestorage.googleapis.com/v0/b/bet-chicago.appspot.com/o/staticassests%2Ffonts%2FAvenirNext-Medium.ttf?alt=media');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'AvenirNext';
+  src: url('https://firebasestorage.googleapis.com/v0/b/bet-chicago.appspot.com/o/staticassests%2Ffonts%2FAvenirNext-Bold.ttf?alt=media');
+  font-weight: 700;
+  font-style: normal;
+}
+
+.navigation-header-bar {
+  background: black;
+  display: flex;
+  display: none;
+  font-size: 18px;
+  height: 60px;
+}
+
+.article-content {
+}
+
+.article-content table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+
+.article-content th {
+  background: #eaeaea;
+  border: solid 1px #999999;
+}
+
+.article-content tr {
+}
+
+.article-content td {
+  text-align: center;
+  border: solid 1px silver;
+}
+
+.navigation-header-bar .more-menus-anchor {
+  font-size: 40px;
+  margin-top: -10px;
+}
+
+.navigation-header-bar a {
+  color: white;
+  font-weight: 500;
+  white-space: nowrap;
+  display: block;
+  font-family: AvenirNextCondensed, sans-serif;
+  cursor: pointer;
+  text-decoration: none;
+  background: black;
+  line-height: 60px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.navigation-header-bar a:hover {
+  background: rgb(50, 50, 50);
+  color: rgb(77, 164, 244);
+}
+
+.navigation-header-bar .logo-div {
+  width: 165px;
+  text-align: center;
+  flex-shrink: 0;
+  flex-grow: 0;
+  padding: 0;
+}
+
+.navigation-header-bar .logo-div-spacer {
+  height: 36px;
+  border-left: 1px solid rgb(102, 102, 102);
+  margin-top: 10px;
+  width: 20px;
+  display: inline-block;
+}
+
+.navigation-header-bar .logo-div img {
+  width: 100%;
+  height: auto;
+}
+
+.navigation-header-bar ul {
+  list-style-type: none;
+  display: flex;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.navigation-header-bar ul li {
+  display: flex;
+}
+
+.navigation-header-bar ul ul {
+  display: none;
+}
+
+.navigation-header-bar .join-bc-vip-community {
+  white-space: nowrap;
+  font-family: AvenirNextCondensed, sans-serif;
+  cursor: pointer;
+  font-weight: normal;
+  color: rgb(128, 128, 128);
+  font-size: 15px !important;
+  line-height: 60px;
+  text-decoration: none;
+}
+
+.main-body-flex-wrapper {
+  display: none;
+}
+
+.navigation-header-bar ul ul.navigation-more-menu {
+  background: black;
+  position: absolute;
+  z-index: 10000;
+  top: 60px;
+  max-height: 0px;
+  transition: max-height 0.4s ease;
+  display: block;
+  width: 250px;
+  overflow: hidden;
+}
+
+.height-initial {
+  height: initial !important;
+}
+
+ul.navigation-more-menu li a {
+  width: 250px;
+  padding-left: 20px;
+  font-size: 18px;
+  line-height: 30px;
+  font-weight: 400;
+  padding: 10px 30px;
+  white-space: nowrap;
+  font-family: AvenirNextCondensed, sans-serif;
+}
+
+@media only screen and (min-width: 1200px) {
+  .navigation-header-bar {
+    font-size: 21px;
+  }
+}
+
+@media only screen and (max-width: 1199px) {
+  .navigation-header-bar .join-bc-vip-community {
+    display: none;
+  }
+
+  .navigation-header-bar a {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .navigation-header-bar .logo-div img {
+    width: 140px;
+  }
+  .navigation-header-bar .logo-div {
+    width: 215px;
+    padding-top: 10px;
+    text-align: center;
+  }
+  .navigation-react-header-bar {
+    border-bottom: 4px solid rgb(236, 88, 0);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .body-wrapper {
+    padding-top: 64px;
+    position: relative;
+  }
+  .navigation-wrapper {
+    position: fixed;
+    width: 100%;
+    top: 0px;
+    z-index: 1000;
+    background: rgb(0, 0, 0);
+  }
+}
+
+.section-header-gray-bar {
+  display: none;
+}
+
+table.nfl-standings-table {
+  font-size: 10pt;
+  margin-top: 40px;
+}
+
+table.nfl-standings-table tr:nth-child(odd) {
+  background: rgb(246, 246, 246);
+}
+
+table.nfl-standings-table tr:nth-child(1) {
+  background: rgb(255, 255, 255);
+}
+
+table.nfl-standings-table tr td {
+  text-align: center;
+  width: 80px;
+  height: 40px;
+}
+
+table.nfl-standings-table tr td:nth-child(1) {
+  width: 210px;
+  text-align: left;
+}
+
+table.nfl-standings-table tr td:nth-child(1) img {
+  width: 40px;
+  margin-right: 3px;
+  vertical-align: middle;
+}
+
+table.nfl-standings-table tr td:nth-child(2) {
+  width: 60px;
+}
+
+table.nfl-standings-table tr td:nth-child(3) {
+  width: 60px;
+}
+
+table.nfl-standings-table tr td:nth-child(4) {
+  width: 60px;
+}
+
+table.nfl-mobile-standings-table {
+  width: 100%;
+  font-size: 10pt;
+}

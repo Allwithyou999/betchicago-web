@@ -1,0 +1,12 @@
+{
+  "name": "apuploader",
+  "description": "ap uploader",
+  "scripts": {},
+  "dependencies": {
+    "@google-cloud/storage": "^1.7.0",
+    "fs": "0.0.1-security",
+    "node-fetch": "^2.1.2"
+  },
+  "devDependencies": {},
+  "private": true
+}

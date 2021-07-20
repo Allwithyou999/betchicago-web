@@ -1,0 +1,132 @@
+<!-- HTML for static distribution bundle build -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Bet Chicago Admin</title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Source+Code+Pro:300,600|Titillium+Web:400,600,700" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="./swagger-ui.css">
+  <style>
+    html {
+      box-sizing: border-box;
+      overflow: -moz-scrollbars-vertical;
+      overflow-y: scroll;
+    }
+
+    *,
+    *:before,
+    *:after {
+      box-sizing: inherit;
+    }
+
+    body {
+      margin: 0;
+      background: #fafafa;
+    }
+
+    .topbar {
+      display: none;
+    }
+
+    .swagger-ui .info {
+      margin: 0;
+    }
+
+    .swagger-ui .info hgroup.main * {
+      float: left;
+      margin: .2em;
+    }
+
+    .swagger-ui .scheme-container {
+      position: absolute;
+      top: 0;
+      right: 0;
+      display: none;
+    }
+
+    .swagger-ui .wrapper {
+      clear: both;
+    }
+
+    .swagger-ui .opblock.opblock-post {
+      background: none;
+      border: none;
+    }
+
+    .swagger-ui .opblock.opblock-post .opblock-summary {
+      border: none;
+    }
+
+    .swagger-ui .opblock-tag {
+      border: none;
+      position: relative;
+    }
+
+    .swagger-ui .expand-operation {
+      position: absolute;
+      left: 30%;
+    }
+
+    .swagger-ui .information-container {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="swagger-ui"></div>
+
+  <script src="./swagger-ui-bundle.js">
+  </script>
+  <script src="./swagger-ui-standalone-preset.js">
+  </script>
+  <script>
+    window.onload = function() {
+      if (window.location.href.substr(-1) !== '/')
+        window.location.href += '/';
+      let url = "https://us-central1-betchicagodev.cloudfunctions.net/api/api-docsui";
+      if (window.location.href.indexOf('//localhost:5001/betchicagodev') !== -1)
+        url = "http://localhost:5001/betchicagodev/us-central1/api/api-docsui";
+      else if (window.location.href.indexOf('//localhost') !== -1)
+        url = "http://localhost:5001/bet-chicago/us-central1/api/api-docsui";
+      else if (window.location.href.indexOf('bet-chicago') !== -1)
+        url = "https://us-central1-bet-chicago.cloudfunctions.net/api/api-docsui";
+
+      const ui = SwaggerUIBundle({
+        url: url,
+        dom_id: '#swagger-ui',
+        deepLinking: true,
+        timeout: 500000000,
+        presets: [
+          SwaggerUIBundle.presets.apis,
+          SwaggerUIStandalonePreset
+        ],
+        plugins: [
+          SwaggerUIBundle.plugins.DownloadUrl
+        ],
+        layout: "StandaloneLayout"
+      })
+
+      window.ui = ui
+
+      setTimeout(collapseNodes, 100);
+      setTimeout(collapseNodes, 300);
+      setTimeout(collapseNodes, 500);
+    }
+    let collapsed = false;
+
+    function collapseNodes() {
+      if (collapsed === true)
+        return;
+
+      let nodes = document.querySelectorAll('.expand-operation');
+      if (nodes.length > 0)
+        collapsed = true;
+      for (let c = 0, l = nodes.length; c < l; c++)
+        nodes[c].click();
+    }
+  </script>
+</body>
+
+</html>

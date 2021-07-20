@@ -1,0 +1,99 @@
+{
+  "rules": {
+    "privateConfig": {
+      ".read": false,
+      ".write": false
+    },
+    ".write": false,
+    "userProfileWrite": {
+      "$uid": {
+        ".write": "$uid === auth.uid",
+        ".read": "$uid === auth.uid"
+      }
+    },
+    "userProfileRead": {
+      "$uid": {
+        ".write": false,
+        ".read": "$uid === auth.uid"
+      }
+    },
+    "userProfilePrivate": {
+      "$uid": {
+        ".write": false,
+        ".read": false
+      }
+    },
+    "visitPageCounts": {
+      ".read": true,
+      "article": {
+        "totals": {
+          ".indexOn": ["total"]
+        }
+      }
+    },
+    "teamSlugs": {
+      ".read": true
+    },
+    "applicationConfig": {
+      ".read": true
+    },
+    "contentfulStore": {
+      ".read": true
+    },
+    "customPages": {
+      ".read": true
+    },
+    "apArticleStore": {
+      ".read": true,
+      "skinny": {
+        "byTag": {
+          "sports": {
+            ".indexOn": ".value"
+          }
+        }
+      }
+    },
+    "sportRadarStore": {
+      ".read": true,
+      "odds": {
+        "categoryHistory": {
+          "20180607": {
+              ".indexOn": "start_date"
+          }
+        }
+      },
+      "golf": {
+        "pga": {
+          "$yearid": {
+            "tournaments": {
+              "$tournamentid": {
+                "rounds": {
+                  "$roundid": {
+                    "teetimes": {
+                      "round": {
+                        "courses": {
+                          "$courseid": {
+                            "pairings": {
+                              ".indexOn": ["tee_time"]
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "oddsPerformance": {
+        "mlb": {
+          "matches": {
+            ".indexOn": ["homeTeam", "awayTeam", "scheduled"]
+          }
+        }
+      }
+    }
+  }
+}

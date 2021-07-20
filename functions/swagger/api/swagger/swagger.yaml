@@ -1,0 +1,1137 @@
+swagger: "2.0"
+info:
+  version: "1.0.0"
+  title: Bet Chicago
+host: localhost:5001
+basePath: /
+schemes:
+  - http
+  - https
+consumes:
+  - application/json
+  - application/octet-stream
+  - application/vnd.contentful.management.v1+json
+  - application/x-www-form-urlencoded
+  - multipart/form-data
+  - text/plain; charset=utf-8
+  - image/jpeg
+produces:
+  - application/json
+paths:
+  /ap/uploadxml:
+    x-swagger-router-controller: apupload
+    post:
+      description: upload ap xml article
+      operationId: uploadAPArticleText
+      tags:
+        - AP Ingestion
+      parameters:
+        - name: filename
+          in: query
+          description: fileName of article
+          required: true
+          type: string
+      responses:
+        "200":
+          description: job completion status
+          schema:
+            type: string
+  /contentfulapi/paged:
+    x-swagger-router-controller: contentfulapi
+    post:
+      description: paged results for cful
+      operationId: contentfulPagedResults
+      tags:
+        - Contentful API
+      parameters:
+        - name: skip
+          in: query
+          description: records to skip (0 default)
+          required: false
+          type: string
+        - name: pagesize
+          in: query
+          description: page size (10 default)
+          required: false
+          type: string
+        - name: queryfilter
+          in: query
+          description: trending, section:id  (home / all articles default)
+          required: false
+          type: string
+      responses:
+        "200":
+          description: job completion status
+          schema:
+            type: string
+  /contentfulapi/articles:
+    x-swagger-router-controller: contentfulapi
+    post:
+      description: paged results for cful
+      operationId: contentfulArticleList
+      tags:
+        - Contentful API
+      parameters:
+        - name: idlist
+          in: query
+          description: articleids seperate by a space
+          required: false
+          type: string
+      responses:
+        "200":
+          description: job completion status
+          schema:
+            type: string
+  /contentfulapi/updatecache:
+    x-swagger-router-controller: contentfulapi
+    post:
+      description: fetch section, sectionPins, navigation, sectionComponents (called by webhook)
+      operationId: updateNavigationCache
+      tags:
+        - Contentful API
+      responses:
+        "200":
+          description: job completion status
+          schema:
+            type: string
+  /contentfulapi/clearcaches:
+    x-swagger-router-controller: contentfulapi
+    post:
+      description: clear html, query and sport radar caches
+      operationId: clearCaches
+      tags:
+        - Contentful API
+      responses:
+        "200":
+          description: job completion status
+          schema:
+            type: string
+  /contentfulapi/runmgtjob:
+    x-swagger-router-controller: contentfulapi
+    post:
+      description: utility for mgmt operations
+      operationId: runMgtJob
+      tags:
+        - Contentful API
+      responses:
+        "200":
+          description: job completion status
+          schema:
+            type: string
+  /contentfulapi/fetcharticlelistpage:
+    x-swagger-router-controller: contentfulapi
+    post:
+      description: fetch article slugs for sitemap
+      operationId: fetchArticleListPage
+      tags:
+        - Contentful API
+      parameters:
+        - name: skip
+          in: query
+          description: records to skip
+          required: false
+          type: string
+        - name: pagesize
+          in: query
+          description: page size
+          required: false
+          type: string
+      responses:
+        "200":
+          description: job completion status
+          schema:
+            type: string
+  /golf/leaderboard:
+    x-swagger-router-controller: golf
+    post:
+      description: update firedata from sports radar
+      operationId: leaderboard
+      tags:
+        - Golf
+      parameters:
+        - name: tournamentId
+          in: query
+          description: id of tournament if not current
+          required: false
+          type: string
+        - name: year
+          in: query
+          description: year :application.golfYearPGA is default
+          required: false
+          type: string
+      responses:
+        "200":
+          description: job completion status
+          schema:
+            type: string
+  /golf/tournament:
+    x-swagger-router-controller: golf
+    post:
+      description: update firedata from sports radar
+      operationId: tournament
+      tags:
+        - Golf
+      parameters:
+        - name: tournamentId
+          in: query
+          description: id of tournament :applicationConfig.golfTournament is default
+          required: false
+          type: string
+        - name: year
+          in: query
+          description: year :application.golfYearPGA is default
+          required: false
+          type: string
+      responses:
+        "200":
+          description: job completion status
+          schema:
+            type: string
+  /golf/season:
+    x-swagger-router-controller: golf
+    post:
+      description: update firedata from sports radar
+      operationId: season
+      tags:
+        - Golf
+      parameters:
+        - name: year
+          in: query
+          description: year if not current
+          required: false
+          type: string
+      responses:
+        "200":
+          description: job completion status
+          schema:
+            type: string
+  /mlb/playerdata:
+    x-swagger-router-controller: mlb
+    post:
+      description: update firedata from sports radar
+      operationId: mlbPlayerData
+      tags:
+        - MLB
+      parameters:
+        - name: playerId
+          in: query
+          description: SR Player Id - 919d18a0-cd70-43c9-81f2-b96bf9e66a17
+          required: true
+          type: string
+        - name: type
+          in: query
+          description: profile or pitching
+          required: true
+          type: string
+          enum:
+            - profile
+            - pitching
+      responses:
+        "200":
+          description: job completion status
+          schema:
+            type: string
+  /mlb/teamdata:
+    x-swagger-router-controller: mlb
+    post:
+      description: update firedata from sports radar
+      operationId: mlbTeamData
+      tags:
+        - MLB
+      parameters:
+        - name: teamId
+          in: query
+          description: SR Team Id - 03556285-bdbb-4576-a06d-42f71f46ddc5
+          required: true
+          type: string
+        - name: type
+          in: query
+          description: profile, depth_chart
+          required: true
+          type: string
+          enum:
+            - profile
+            - depth_chart
+      responses:
+        "200":
+          description: job completion status
+          schema:
+            type: string
+  /mlb/teamseasondata:
+    x-swagger-router-controller: mlb
+    post:
+      description: update firedata from sports radar
+      operationId: mlbTeamSeasonData
+      tags:
+        - MLB
+      parameters:
+        - name: teamId
+          in: query
+          description: SR Team Id - 03556285-bdbb-4576-a06d-42f71f46ddc5
+          required: true
+          type: string
+        - name: type
+          in: query
+          description: splits, statistics
+          required: true
+          type: string
+          enum:
+            - splits
+            - statistics
+        - name: year
+          in: query
+          description: year 2018, 2017, ... 2012 - maybe farther
+          required: true
+          type: string
+        - name: season
+          in: query
+          description: pre, regular, post
+          required: true
+          type: string
+          enum:
+            - REG
+            - PRE
+            - PST
+      responses:
+        "200":
+          description: job completion status
+          schema:
+            type: string
+  /mlb/dailydata:
+    x-swagger-router-controller: mlb
+    post:
+      description: update firedata from sports radar
+      operationId: updateMLBDailyData
+      tags:
+        - MLB
+      parameters:
+        - name: date
+          in: query
+          description: date if not current
+          required: false
+          type: string
+      responses:
+        "200":
+          description: job completion status
+          schema:
+            type: string
+  /mlb/dailyboxscore:
+    x-swagger-router-controller: mlb
+    post:
+      description: update firedata from sports radar for boxscore only
+      operationId: updateMLBDailyBoxscore
+      tags:
+        - MLB
+      parameters:
+        - name: date
+          in: query
+          description: date if not current
+          required: false
+          type: string
+      responses:
+        "200":
+          description: job completion status
+          schema:
+            type: string
+  /mlb/gamedata:
+    x-swagger-router-controller: mlb
+    post:
+      description: update firedata from sports radar
+      operationId: updateMLBGameData
+      tags:
+        - MLB
+      parameters:
+        - name: eventId
+          in: query
+          description: eventId
+          required: true
+          type: string
+      responses:
+        "200":
+          description: job completion status
+          schema:
+            type: string
+  /mlb/yearlydata:
+    x-swagger-router-controller: mlb
+    post:
+      description: update firedata from sports radar
+      operationId: updateMLBYearData
+      tags:
+        - MLB
+      parameters:
+        - name: year
+          in: query
+          description: year
+          required: true
+          type: string
+        - name: tag
+          in: query
+          description: yearly stats
+          required: true
+          type: string
+          enum:
+            - statistics
+            - rankings
+            - schedule
+            - standings
+            - transactions
+            - injuries
+      responses:
+        "200":
+          description: job completion status
+          schema:
+            type: string
+  /mlb/scorepush:
+    x-swagger-router-controller: mlb
+    get:
+      description: for long polling on sport radar mlb line score push feed
+      operationId: handleBaseballPush
+      tags:
+        - MLB
+      parameters:
+        - name: type
+          in: query
+          description: stat type to feed
+          required: true
+          type: string
+          enum:
+            - statistics
+            - linescore
+            - events
+      responses:
+        "200":
+          description: job completion status
+          schema:
+            type: string
+  /ncaamb/updateDailyData:
+    x-swagger-router-controller: ncaamb
+    post:
+      description: daily schedule data
+      operationId: updateNCAAMBDailyData
+      tags:
+        - NCAAMB
+      parameters:
+        - name: date
+          in: query
+          description: Date
+          required: false
+          type: string
+      responses:
+        "200":
+          description: job completion status
+          schema:
+            type: string
+  /ncaamb/updateSeasonStats:
+    x-swagger-router-controller: ncaamb
+    post:
+      description: Season Statistics
+      operationId: updateNCAAMBSeasonStats
+      tags:
+        - NCAAMB
+      parameters:
+        - name: year
+          in: query
+          description: Year
+          required: true
+          type: string
+      responses:
+        "200":
+          description: job completion status
+          schema:
+            type: string
+  /ncaamb/updateYearData:
+    x-swagger-router-controller: ncaamb
+    post:
+      description: Year schedule and standings data
+      operationId: updateNCAAMBYearData
+      tags:
+        - NCAAMB
+      parameters:
+        - name: year
+          in: query
+          description: Year
+          required: true
+          type: string
+        - name: tag
+          in: query
+          description: schedule, standings, tournaments
+          required: true
+          type: string
+      responses:
+        "200":
+          description: job completion status
+          schema:
+            type: string
+  /ncaamb/updateGameData:
+    x-swagger-router-controller: ncaamb
+    post:
+      description: Game data
+      operationId: updateNCAAMBGameData
+      tags:
+        - NCAAMB
+      parameters:
+        - name: gameId
+          in: query
+          description: Game Id
+          required: true
+          type: string
+        - name: tag
+          in: query
+          description: boxscore, summary, pbp
+          required: true
+          type: string
+      responses:
+        "200":
+          description: job completion status
+          schema:
+            type: string
+  /ncaamb/updatePlayerData:
+    x-swagger-router-controller: ncaamb
+    post:
+      description: Player data
+      operationId: updateNCAAMBPlayerData
+      tags:
+        - NCAAMB
+      parameters:
+        - name: playerId
+          in: query
+          description: Player Id
+          required: true
+          type: string
+      responses:
+        "200":
+          description: job completion status
+          schema:
+            type: string
+  /ncaamb/updateTeamData:
+    x-swagger-router-controller: ncaamb
+    post:
+      description: Team data
+      operationId: updateNCAAMBTeamData
+      tags:
+        - NCAAMB
+      parameters:
+        - name: teamId
+          in: query
+          description: Team Id
+          required: true
+          type: string
+      responses:
+        "200":
+          description: job completion status
+          schema:
+            type: string
+  /ncaamb/updateRankingData:
+    x-swagger-router-controller: ncaamb
+    post:
+      description: Ranking data
+      operationId: updateNCAAMBRankingData
+      tags:
+        - NCAAMB
+      parameters:
+        - name: year
+          in: query
+          description: Year
+          required: true
+          type: string
+      responses:
+        "200":
+          description: job completion status
+          schema:
+            type: string
+  /ncaamb/getFutureData:
+    x-swagger-router-controller: ncaamb
+    post:
+      description: Odds data
+      operationId: getNCAAMBFutureData
+      tags:
+        - NCAAMB
+      parameters:
+        - name: year
+          in: query
+          description: Year
+          required: true
+          type: string
+      responses:
+        "200":
+          description: job completion status
+          schema:
+            type: string
+  /nba/updateDailyData:
+    x-swagger-router-controller: nba
+    post:
+      description: daily schedule data
+      operationId: updateDailyData
+      tags:
+        - NBA
+      parameters:
+        - name: date
+          in: query
+          description: Date
+          required: false
+          type: string
+      responses:
+        "200":
+          description: job completion status
+          schema:
+            type: string
+  /nba/updateSeasonStats:
+    x-swagger-router-controller: nba
+    post:
+      description: Season Statistics
+      operationId: updateSeasonStats
+      tags:
+        - NBA
+      parameters:
+        - name: year
+          in: query
+          description: Year
+          required: true
+          type: string
+      responses:
+        "200":
+          description: job completion status
+          schema:
+            type: string
+  /nba/updateYearData:
+    x-swagger-router-controller: nba
+    post:
+      description: Year schedule and standings data
+      operationId: updateYearData
+      tags:
+        - NBA
+      parameters:
+        - name: year
+          in: query
+          description: Year
+          required: true
+          type: string
+        - name: tag
+          in: query
+          description: schedule, standings
+          required: true
+          type: string
+      responses:
+        "200":
+          description: job completion status
+          schema:
+            type: string
+  /nba/updateGameData:
+    x-swagger-router-controller: nba
+    post:
+      description: Game data
+      operationId: updateGameData
+      tags:
+        - NBA
+      parameters:
+        - name: gameId
+          in: query
+          description: Game Id
+          required: true
+          type: string
+        - name: tag
+          in: query
+          description: boxscore, summary, pbp
+          required: true
+          type: string
+      responses:
+        "200":
+          description: job completion status
+          schema:
+            type: string
+  /nba/updatePlayerData:
+    x-swagger-router-controller: nba
+    post:
+      description: Player data
+      operationId: updatePlayerData
+      tags:
+        - NBA
+      parameters:
+        - name: playerId
+          in: query
+          description: Player Id
+          required: true
+          type: string
+      responses:
+        "200":
+          description: job completion status
+          schema:
+            type: string
+  /nba/updateTeamData:
+    x-swagger-router-controller: nba
+    post:
+      description: Team data
+      operationId: updateTeamData
+      tags:
+        - NBA
+      parameters:
+        - name: teamId
+          in: query
+          description: Team Id
+          required: true
+          type: string
+      responses:
+        "200":
+          description: job completion status
+          schema:
+            type: string
+  /nba/getFutureData:
+    x-swagger-router-controller: nba
+    post:
+      description: Ranking data
+      operationId: getFutureData
+      tags:
+        - NBA
+      parameters:
+        - name: year
+          in: query
+          description: Year
+          required: true
+          type: string
+      responses:
+        "200":
+          description: job completion status
+          schema:
+            type: string
+  /nfl/updateschedule:
+    x-swagger-router-controller: nfl
+    post:
+      description: update schedule
+      operationId: updateSchedule
+      tags:
+        - NFL
+      parameters:
+        - name: year
+          in: query
+          description: year 2018, 2017, ... 2012 - maybe farther
+          required: false
+          type: string
+        - name: tag
+          in: query
+          description: pre, regular, post
+          required: true
+          type: string
+          enum:
+            - REG
+            - PRE
+            - PST
+      responses:
+        "200":
+          description: job completion status
+          schema:
+            type: string
+  /nfl/updatestandings:
+    x-swagger-router-controller: nfl
+    post:
+      description: update standings
+      operationId: updateStandings
+      tags:
+        - NFL
+      parameters:
+        - name: year
+          in: query
+          description: year 2018, 2017, ... 2012 - maybe farther
+          required: false
+          type: string
+      responses:
+        "200":
+          description: job completion status
+          schema:
+            type: string
+  /nfl/updateweekly:
+    x-swagger-router-controller: nfl
+    post:
+      description: update weekly schedule
+      operationId: updateWeekly
+      tags:
+        - NFL
+      parameters:
+        - name: year
+          in: query
+          description: year 2018, 2017, ... 2012 - maybe farther
+          required: false
+          type: string
+        - name: tag
+          in: query
+          description: pre, regular, post
+          required: true
+          type: string
+          enum:
+            - REG
+            - PRE
+            - PST
+        - name: week
+          in: query
+          description: 1-4, 1-17, 1-4 (pre/reg/pst)
+          required: true
+          type: string
+      responses:
+        "200":
+          description: job completion status
+          schema:
+            type: string
+  /nfl/updatehierarchy:
+    x-swagger-router-controller: nfl
+    post:
+      description: update heirarchy
+      operationId: updateLeagueHierarchy
+      tags:
+        - NFL
+      responses:
+        "200":
+          description: job completion status
+          schema:
+            type: string
+  /nfl/processstats:
+    x-swagger-router-controller: nfl
+    post:
+      description: update /playerStats with player ids from team rosters, copy stats to /teamStats from team data
+      operationId: processStats
+      tags:
+        - NFL
+      responses:
+        "200":
+          description: job completion status
+          schema:
+            type: string
+  /nfl/updatestats:
+    x-swagger-router-controller: nfl
+    post:
+      description: update team stats (all)
+      operationId: updateStats
+      tags:
+        - NFL
+      responses:
+        "200":
+          description: job completion status
+          schema:
+            type: string
+  /nfl/updateplayerpage:
+    x-swagger-router-controller: nfl
+    post:
+      description: update player stats for a page of ids
+      operationId: updatePlayerPage
+      tags:
+        - NFL
+      parameters:
+        - name: skip
+          in: query
+          description: start pos in list
+          required: false
+          type: string
+        - name: pagesize
+          in: query
+          description: player count to update (20 default)
+          required: false
+          type: string
+      responses:
+        "200":
+          description: job completion status
+          schema:
+            type: string
+  /nfl/updateplayer:
+    x-swagger-router-controller: nfl
+    post:
+      description: update player profile/stats
+      operationId: updatePlayerProfile
+      tags:
+        - NFL
+      parameters:
+        - name: playerid
+          in: query
+          description: playerid i.e. 41c44740-d0f6-44ab-8347-3b5d515e5ecf
+          required: true
+          type: string
+      responses:
+        "200":
+          description: job completion status
+          schema:
+            type: string
+  /odds/updatemapping:
+    x-swagger-router-controller: odds
+    post:
+      description: update a mapping type
+      operationId: updateMapping
+      tags:
+        - Odds
+      parameters:
+        - name: mapping
+          in: query
+          description: update mappings from sports radar
+          type: string
+          required: true
+          enum:
+            - sports
+            - books
+            - categories
+            - tournaments/id_mappings
+            - seasons/id_mappings
+            - venues/id_mappings
+            - sport_events/id_mappings
+            - teams/id_mappings
+            - players/id_mappings
+      responses:
+        "200":
+          description: job completion status
+          schema:
+            type: string
+  /odds/updateodds:
+    x-swagger-router-controller: odds
+    post:
+      description: update odds (for current day)
+      operationId: updateOdds
+      tags:
+        - Odds
+      parameters:
+        - name: date
+          in: query
+          description: date if not current (current is best)
+          type: string
+          required: false
+      responses:
+        "200":
+          description: job completion status
+          schema:
+            type: string
+  /odds/udpateschedule:
+    x-swagger-router-controller: odds
+    post:
+      description: update schedule information for a sport / date
+      operationId: updateODDSchedule
+      tags:
+        - Odds
+      parameters:
+        - name: sportid
+          in: query
+          description: sr id (sport radar)
+          type: string
+          required: true
+        - name: date
+          in: query
+          description: date if not current
+          type: string
+          required: false
+      responses:
+        "200":
+          description: job completion status
+          schema:
+            type: string
+  /odds/updatetournaments:
+    x-swagger-router-controller: odds
+    post:
+      description: update tournaments
+      operationId: updateTournaments
+      tags:
+        - Odds
+      responses:
+        "200":
+          description: job completion status
+          schema:
+            type: string
+  /odds/udpatecategoryrights:
+    x-swagger-router-controller: odds
+    post:
+      description: update category rights - must run update category mappings first
+      operationId: updateCategoryRights
+      tags:
+        - Odds
+      responses:
+        "200":
+          description: job completion status
+          schema:
+            type: string
+  /odds/udpatetournamentsbysport:
+    x-swagger-router-controller: odds
+    post:
+      description: update tournaments for a sport
+      operationId: updateTournamentsBySport
+      tags:
+        - Odds
+      parameters:
+        - name: sportid
+          in: query
+          description: sr id (sport radar)
+          type: string
+          required: true
+      responses:
+        "200":
+          description: job completion status
+          schema:
+            type: string
+  /odds/updateoddsperformance:
+    x-swagger-router-controller: odds
+    post:
+      description: process odds data and stats data into spreadPerformance
+      operationId: updateOddsPerformance
+      tags:
+        - Odds
+      parameters:
+        - name: sportkey
+          in: query
+          description: prefix in database to daily info (i.e. ncaamb)
+          type: string
+          required: true
+        - name: oddskey
+          in: query
+          description: odds data category (i.e. Basketball)
+          type: string
+          required: true
+        - name: date
+          in: query
+          description: date if not current
+          type: string
+          required: false
+        - name: dateoffset
+          type: string
+          in: query
+          description: day ahead or behind to process (-1 is yesterday)
+          required: false
+      responses:
+        "200":
+          description: job completion status
+          schema:
+            type: string
+  /odds/updateatshistory:
+    x-swagger-router-controller: odds
+    post:
+      description: process odds data and stats data into spreadPerformance
+      operationId: updateATSHistory
+      tags:
+        - Odds
+      parameters:
+        - name: sportkey
+          in: query
+          description: prefix in database to daily info (i.e. ncaamb)
+          type: string
+          required: true
+      responses:
+        "200":
+          description: job completion status
+          schema:
+            type: string
+  /user/newsletter:
+    x-swagger-router-controller: user
+    post:
+      description: submit an email
+      operationId: submitNewsletterEmail
+      tags:
+        - User Operations
+      parameters:
+        - name: email
+          in: query
+          description: email
+          type: string
+          required: true
+      responses:
+        "200":
+          description: job completion status
+          schema:
+            type: string
+  /user/comment:
+    x-swagger-router-controller: user
+    post:
+      description: submit an user comment
+      operationId: submitUserComment
+      tags:
+        - User Operations
+      parameters:
+        - name: name
+          in: query
+          description: name
+          type: string
+        - name: email
+          in: query
+          description: email
+          type: string
+        - name: comment
+          in: query
+          description: comment
+          type: string
+      responses:
+        "200":
+          description: job completion status
+          schema:
+            type: string
+  /user/registeruser:
+    x-swagger-router-controller: user
+    post:
+      description: register a user (step 1)
+      operationId: registerUser
+      tags:
+        - User Operations
+      parameters:
+        - name: name
+          in: query
+          description: name
+          type: string
+        - name: email
+          in: query
+          description: email
+          type: string
+        - name: dob
+          in: query
+          description: date of birth
+          type: string
+      responses:
+        "200":
+          description: user registration status
+          schema:
+            type: string
+  /user/addemailtolist:
+    x-swagger-router-controller: user
+    post:
+      description: test operations for constant contact api
+      operationId: ccapi
+      tags:
+        - User Operations
+      parameters:
+        - name: email
+          in: query
+          description: email
+          type: string
+          required: true
+        - name: listid
+          in: query
+          description: uses privateConfig/newsletterListId by default
+          type: string
+          required: false
+        - name: remove
+          in: query
+          description: true as string if you want to remove (OPTOUT) the email - false by default
+          type: string
+          required: false
+      responses:
+        "200":
+          description: job completion status
+          schema:
+            type: string
+  /componentslugs/updateComponentSlug:
+    x-swagger-router-controller: componentslugs
+    post:
+      description: component slug
+      operationId: updateComponentSlug
+      tags:
+        - ComponentSlug
+      parameters:
+        - name: root
+          in: query
+          description: Sport root url
+          required: true
+          type: string
+        - name: tag
+          in: query
+          description: Sport sub menu
+          required: true
+          type: string
+        - name: component
+          in: query
+          description: react component name
+          required: true
+          type: string
+      responses:
+        "200":
+          description: job completion status
+          schema:
+            type: string
+  /swagger:
+    x-swagger-pipe: swagger_raw

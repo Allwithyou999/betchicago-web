@@ -1,0 +1,7 @@
+this app compliments the AP ingestor application
+
+-- copy this folder to the compute instance
+-- cd to the folder
+-- npm install
+-- node [appfile] [path to ap content] [path to bet chicago api]
+-- node apuploader.js 'C:/pathtoapcontent/' 'https://us-central-bet-chicago/api/'
